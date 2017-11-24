@@ -13,9 +13,6 @@ struct TimerMode {
     let seconds: Int
 }
 
-func seedTimerModes() -> [TimerMode] {
-    let pomodoro = TimerMode(name: "pomodoro", seconds: 1500)
-    let shortBreak = TimerMode(name: "shortBreak", seconds: 300)
-    let longBreak = TimerMode(name: "longBreak", seconds: 600)
-    return [pomodoro, shortBreak, longBreak]
-}
+let pomodoro = TimerMode(name: "pomodoro", seconds: 1500)
+let shortBreak = TimerMode(name: "shortBreak", seconds: 300)
+let longBreak = TimerMode(name: "longBreak", seconds: 600)

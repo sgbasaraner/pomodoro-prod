@@ -16,13 +16,11 @@ class ViewController: UIViewController {
     var timer = Timer()
     var timerRunning = false
     
-    let pomodoroSeconds = 1500
-    let shortBreakSeconds = 300
-    let longBreakSeconds = 600
+    var currentMode = pomodoro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        seconds = pomodoroSeconds
+        seconds = currentMode.seconds
     }
     
     func runTimer() {
@@ -38,24 +36,26 @@ class ViewController: UIViewController {
             // TODO: alert the user
         } else {
             seconds -= 1
-            timerLabel.text = "\(seconds / 60):\(seconds % 60)"
-            // TODO: format the timerLabel string
+            timerLabel.text = formatTimerString(seconds: seconds)
         }
     }
     
     @IBAction func pomodoroTouch(_ sender: UIButton) {
         runTimer()
-        seconds = pomodoroSeconds
+        currentMode = pomodoro
+        seconds = currentMode.seconds
     }
     
     @IBAction func shortBreakTouch(_ sender: UIButton) {
         runTimer()
-        seconds = shortBreakSeconds
+        currentMode = shortBreak
+        seconds = currentMode.seconds
     }
     
     @IBAction func longBreakTouch(_ sender: UIButton) {
         runTimer()
-        seconds = longBreakSeconds
+        currentMode = longBreak
+        seconds = currentMode.seconds
     }
     
     @IBAction func startTouch(_ sender: UIButton) {
@@ -70,6 +70,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetTouch(_ sender: UIButton) {
+        seconds = currentMode.seconds
+        timerLabel.text = formatTimerString(seconds: seconds)
+    }
+    
+    func formatTimerString(seconds: Int) -> String {
+        let minutes = seconds / 60 % 60
+        let seconds = seconds % 60
+        return String(format:"%02i:%02i", minutes, seconds)
     }
 }
 
