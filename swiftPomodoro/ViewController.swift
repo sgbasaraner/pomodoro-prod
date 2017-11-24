@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     @objc func updateTimer() {
         if seconds < 1 {
             timer.invalidate()
+			timerRunning = false
 			vibrate()
 			presentAlert()
         } else {
