@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A48DD211FC8734E0093FDDA /* TimerModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A48DD201FC8734E0093FDDA /* TimerModeButton.swift */; };
 		7A7F7D951FC838B700D1C011 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7D941FC838B700D1C011 /* AppDelegate.swift */; };
 		7A7F7D971FC838B700D1C011 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7D961FC838B700D1C011 /* ViewController.swift */; };
 		7A7F7D9A1FC838B700D1C011 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7F7D981FC838B700D1C011 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A48DD201FC8734E0093FDDA /* TimerModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModeButton.swift; sourceTree = "<group>"; };
 		7A7F7D911FC838B700D1C011 /* swiftPomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftPomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7F7D941FC838B700D1C011 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A7F7D961FC838B700D1C011 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				7A7F7D961FC838B700D1C011 /* ViewController.swift */,
 				7A7F7DA81FC8549600D1C011 /* Extensions.swift */,
 				7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */,
+				7A48DD201FC8734E0093FDDA /* TimerModeButton.swift */,
 				7A7F7D981FC838B700D1C011 /* Main.storyboard */,
 				7A7F7D9B1FC838B700D1C011 /* Assets.xcassets */,
 				7A7F7D9D1FC838B700D1C011 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A7F7D971FC838B700D1C011 /* ViewController.swift in Sources */,
+				7A48DD211FC8734E0093FDDA /* TimerModeButton.swift in Sources */,
 				7A7F7D951FC838B700D1C011 /* AppDelegate.swift in Sources */,
 				7A7F7DA71FC8516A00D1C011 /* TimerMode.swift in Sources */,
 				7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */,
