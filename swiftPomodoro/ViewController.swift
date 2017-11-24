@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             // TODO: alert the user
         } else {
             seconds -= 1
-            timerLabel.text = formatTimerString(seconds: seconds)
+            timerLabel.text = seconds.timerString()
         }
     }
     
@@ -71,13 +71,7 @@ class ViewController: UIViewController {
     
     @IBAction func resetTouch(_ sender: UIButton) {
         seconds = currentMode.seconds
-        timerLabel.text = formatTimerString(seconds: seconds)
-    }
-    
-    func formatTimerString(seconds: Int) -> String {
-        let minutes = seconds / 60 % 60
-        let seconds = seconds % 60
-        return String(format:"%02i:%02i", minutes, seconds)
+        timerLabel.text = seconds.timerString()
     }
 }
 

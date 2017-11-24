@@ -13,6 +13,7 @@
 		7A7F7D9C1FC838B700D1C011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7F7D9B1FC838B700D1C011 /* Assets.xcassets */; };
 		7A7F7D9F1FC838B700D1C011 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7F7D9D1FC838B700D1C011 /* LaunchScreen.storyboard */; };
 		7A7F7DA71FC8516A00D1C011 /* TimerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */; };
+		7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7DA81FC8549600D1C011 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7A7F7D9E1FC838B700D1C011 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A7F7DA01FC838B700D1C011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMode.swift; sourceTree = "<group>"; };
+		7A7F7DA81FC8549600D1C011 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				7A7F7D941FC838B700D1C011 /* AppDelegate.swift */,
 				7A7F7D961FC838B700D1C011 /* ViewController.swift */,
+				7A7F7DA81FC8549600D1C011 /* Extensions.swift */,
 				7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */,
 				7A7F7D981FC838B700D1C011 /* Main.storyboard */,
 				7A7F7D9B1FC838B700D1C011 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 				7A7F7D971FC838B700D1C011 /* ViewController.swift in Sources */,
 				7A7F7D951FC838B700D1C011 /* AppDelegate.swift in Sources */,
 				7A7F7DA71FC8516A00D1C011 /* TimerMode.swift in Sources */,
+				7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
