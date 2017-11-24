@@ -25,7 +25,11 @@ class ViewController: UIViewController {
     
     func runTimer() {
         if !timerRunning {
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1,
+                                         target: self,
+                                         selector: (#selector(self.updateTimer)),
+                                         userInfo: nil,
+                                         repeats: true)
             timerRunning = true
         }
     }
