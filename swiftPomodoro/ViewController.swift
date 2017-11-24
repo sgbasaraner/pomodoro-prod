@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ViewController: UIViewController {
     
@@ -37,7 +38,8 @@ class ViewController: UIViewController {
     @objc func updateTimer() {
         if seconds < 1 {
             timer.invalidate()
-            // TODO: alert the user
+			vibrate()
+			presentAlert()
         } else {
             seconds -= 1
             timerLabel.text = seconds.timerString()
@@ -77,5 +79,17 @@ class ViewController: UIViewController {
         seconds = currentMode.seconds
         timerLabel.text = seconds.timerString()
     }
+	
+	func presentAlert() {
+		let alert = UIAlertController(title: "Hey!", message: "\(currentMode.name) completed.", preferredStyle: UIAlertControllerStyle.alert)
+		let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+		alert.addAction(ok)
+		present(alert, animated: true, completion: nil)
+	}
+	
+	func vibrate() {
+		let generator = UIImpactFeedbackGenerator(style: .heavy)
+		generator.impactOccurred()
+	}
 }
 
