@@ -14,40 +14,59 @@ class ViewController: UIViewController {
     
     var seconds = 0
     var timer = Timer()
+    var timerRunning = false
+    
+    let pomodoroSeconds = 1500
+    let shortBreakSeconds = 300
+    let longBreakSeconds = 600
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTimer()
+        seconds = pomodoroSeconds
     }
     
     func runTimer() {
-        timer = Timer.init(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
-        
-        RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
+        if !timerRunning {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
+            timerRunning = true
+        }
     }
     
     @objc func updateTimer() {
-        if seconds >= 1{
+        if seconds < 1 {
+            timer.invalidate()
+            // TODO: alert the user
+        } else {
             seconds -= 1
+            timerLabel.text = "\(seconds / 60):\(seconds % 60)"
+            // TODO: format the timerLabel string
         }
-        timerLabel.text = "\(seconds / 60):\(seconds % 60)"
     }
     
     @IBAction func pomodoroTouch(_ sender: UIButton) {
-        seconds = 25 * 60
         runTimer()
+        seconds = pomodoroSeconds
     }
     
     @IBAction func shortBreakTouch(_ sender: UIButton) {
+        runTimer()
+        seconds = shortBreakSeconds
     }
     
     @IBAction func longBreakTouch(_ sender: UIButton) {
+        runTimer()
+        seconds = longBreakSeconds
     }
     
     @IBAction func startTouch(_ sender: UIButton) {
+        runTimer()
     }
     
     @IBAction func stopTouch(_ sender: UIButton) {
+        if timerRunning {
+            timer.invalidate()
+            timerRunning = false
+        }
     }
     
     @IBAction func resetTouch(_ sender: UIButton) {
