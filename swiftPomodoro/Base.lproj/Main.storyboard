@@ -25,16 +25,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="119.5" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ya-BM-sMZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQN-a9-sv6">
                                         <rect key="frame" x="119.5" y="0.0" width="120" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="stopTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vPf-6h-LTz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tnf-aJ-awQ">
                                         <rect key="frame" x="239.5" y="0.0" width="119.5" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="resetTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TgH-kh-Ol0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -51,16 +60,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="119.5" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Pomodoro"/>
+                                        <connections>
+                                            <action selector="pomodoroTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8mk-Kz-5TM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxG-mE-qZC">
                                         <rect key="frame" x="119.5" y="0.0" width="120" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Short Break"/>
+                                        <connections>
+                                            <action selector="shortBreakTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0I1-dr-zOg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59I-7p-6tu">
                                         <rect key="frame" x="239.5" y="0.0" width="119.5" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Long Break"/>
+                                        <connections>
+                                            <action selector="longBreakTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l4D-aT-O5T"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

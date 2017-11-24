@@ -13,5 +13,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func pomodoroTouch(_ sender: UIButton) {
+    }
+    
+    @IBAction func shortBreakTouch(_ sender: UIButton) {
+    }
+    
+    @IBAction func longBreakTouch(_ sender: UIButton) {
+    }
+    
+    @IBAction func startTouch(_ sender: UIButton) {
+    }
+    
+    @IBAction func stopTouch(_ sender: UIButton) {
+    }
+    
+    @IBAction func resetTouch(_ sender: UIButton) {
+    }
 }
 
