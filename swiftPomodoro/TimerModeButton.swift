@@ -10,8 +10,8 @@ import UIKit
 
 class TimerModeButton: UIButton {
 	
-	let blue = UIColor.init(red: 0, green: 0.5, blue: 1, alpha: 1)
-	let darkBlue = UIColor.init(red: 0, green: 0.3, blue: 0.8, alpha: 1)
+	let blue = UIColor(red:0.36, green:0.65, blue:0.90, alpha:1.0)
+	let darkBlue = UIColor(red:0.13, green:0.52, blue:0.73, alpha:1.0)
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
