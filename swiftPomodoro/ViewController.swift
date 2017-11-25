@@ -12,6 +12,9 @@ import AudioToolbox
 class ViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
+	@IBOutlet weak var startButton: UIButton!
+	@IBOutlet weak var stopButton: UIButton!
+	@IBOutlet weak var resetButton: UIButton!
 	@IBOutlet weak var pomodoroButton: TimerModeButton!
 	@IBOutlet weak var shortBreakButton: TimerModeButton!
 	@IBOutlet weak var longBreakButton: TimerModeButton!
@@ -25,6 +28,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		setupButtons()
         seconds = currentMode.seconds
 		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
 		highlight(pomodoroButton)
@@ -110,6 +114,15 @@ class ViewController: UIViewController {
 				b.chosen = false
 			}
 		}
+	}
+	
+	func setupButtons() {
+		startButton.backgroundColor = UIColor(red:0.36, green:0.64, blue:0.14, alpha:1.0)
+		startButton.setTitleColor(UIColor.white, for: .normal)
+		stopButton.backgroundColor = UIColor(red:0.78, green:0.06, blue:0.07, alpha:1.0)
+		stopButton.setTitleColor(UIColor.white, for: .normal)
+		resetButton.backgroundColor = UIColor(red:0.91, green:0.91, blue:0.91, alpha:1.0)
+		resetButton.setTitleColor(UIColor.black, for: .normal)
 	}
 }
 

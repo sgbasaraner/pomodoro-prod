@@ -19,27 +19,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ul5-5u-3F6">
-                                <rect key="frame" x="8" y="425.5" width="359" height="33"/>
+                                <rect key="frame" x="8" y="425.5" width="359" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5c5-NJ-bTn">
-                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
                                             <action selector="startTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ya-BM-sMZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQN-a9-sv6">
-                                        <rect key="frame" x="119.5" y="0.0" width="120" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="119.5" y="0.0" width="120" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Stop"/>
                                         <connections>
                                             <action selector="stopTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vPf-6h-LTz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tnf-aJ-awQ">
-                                        <rect key="frame" x="239.5" y="0.0" width="119.5" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="239.5" y="0.0" width="119.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Reset"/>
                                         <connections>
                                             <action selector="resetTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TgH-kh-Ol0"/>
@@ -99,7 +99,10 @@
                     <connections>
                         <outlet property="longBreakButton" destination="59I-7p-6tu" id="Krb-Hv-EuX"/>
                         <outlet property="pomodoroButton" destination="BLF-Jr-dnB" id="ofL-1c-gwP"/>
+                        <outlet property="resetButton" destination="Tnf-aJ-awQ" id="2J6-R1-Jdm"/>
                         <outlet property="shortBreakButton" destination="AxG-mE-qZC" id="QKd-OG-faE"/>
+                        <outlet property="startButton" destination="5c5-NJ-bTn" id="4vW-IZ-i4Z"/>
+                        <outlet property="stopButton" destination="aQN-a9-sv6" id="5QB-vf-86f"/>
                         <outlet property="timerLabel" destination="5BJ-Ox-blh" id="HFs-Gb-lXv"/>
                     </connections>
                 </viewController>
