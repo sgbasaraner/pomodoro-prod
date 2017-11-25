@@ -12,7 +12,11 @@ import AudioToolbox
 class ViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
-    
+	@IBOutlet weak var pomodoroButton: TimerModeButton!
+	@IBOutlet weak var shortBreakButton: TimerModeButton!
+	@IBOutlet weak var longBreakButton: TimerModeButton!
+	var timerModeButtons = [TimerModeButton]()
+	
     var seconds = 0
     var timer = Timer()
     var timerRunning = false
@@ -22,6 +26,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         seconds = currentMode.seconds
+		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
+		highlight(pomodoroButton)
     }
     
     func runTimer() {
@@ -47,22 +53,25 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func pomodoroTouch(_ sender: UIButton) {
+    @IBAction func pomodoroTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = pomodoro
         seconds = currentMode.seconds
+		highlight(sender)
     }
     
-    @IBAction func shortBreakTouch(_ sender: UIButton) {
+    @IBAction func shortBreakTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = shortBreak
         seconds = currentMode.seconds
+		highlight(sender)
     }
     
-    @IBAction func longBreakTouch(_ sender: UIButton) {
+    @IBAction func longBreakTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = longBreak
         seconds = currentMode.seconds
+		highlight(sender)
     }
     
     @IBAction func startTouch(_ sender: UIButton) {
@@ -91,6 +100,16 @@ class ViewController: UIViewController {
 	func vibrate() {
 		let generator = UIImpactFeedbackGenerator(style: .heavy)
 		generator.impactOccurred()
+	}
+	
+	func highlight(_ button: TimerModeButton) {
+		for b in timerModeButtons {
+			if b == button {
+				b.chosen = true
+			} else {
+				b.chosen = false
+			}
+		}
 	}
 }
 
