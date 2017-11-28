@@ -23,12 +23,14 @@ class MainViewController: UIViewController {
     var seconds = 0
     var timer = Timer()
     var timerRunning = false
-    
-    var currentMode = pomodoro
+	
+	var timerModes = [TimerMode]()
+	var currentMode = generateTimerModes()[0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 		setupButtons()
+		timerModes = generateTimerModes()
         seconds = currentMode.seconds
 		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
 		highlight(pomodoroButton)
@@ -59,21 +61,21 @@ class MainViewController: UIViewController {
     
     @IBAction func pomodoroTouch(_ sender: TimerModeButton) {
         runTimer()
-        currentMode = pomodoro
+        currentMode = timerModes[0]
         seconds = currentMode.seconds
 		highlight(sender)
     }
     
     @IBAction func shortBreakTouch(_ sender: TimerModeButton) {
         runTimer()
-        currentMode = shortBreak
+        currentMode = timerModes[1]
         seconds = currentMode.seconds
 		highlight(sender)
     }
     
     @IBAction func longBreakTouch(_ sender: TimerModeButton) {
         runTimer()
-        currentMode = longBreak
+        currentMode = timerModes[2]
         seconds = currentMode.seconds
 		highlight(sender)
     }
