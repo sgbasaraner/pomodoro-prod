@@ -25,4 +25,8 @@ class SettingsViewController: UITableViewController {
 			return 2
 		}
     }
+	
+	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
+		
+	}
 }
