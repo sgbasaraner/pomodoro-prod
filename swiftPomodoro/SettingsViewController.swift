@@ -10,8 +10,15 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var pomodoroField: UITextField!
+	@IBOutlet weak var shortBreakField: UITextField!
+	@IBOutlet weak var longBreakField: UITextField!
+	@IBOutlet weak var vibrationField: UITextField!
+	var timerModeFields = [UITextField]()
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
+		timerModeFields = [pomodoroField, shortBreakField, longBreakField]
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -27,6 +34,8 @@ class SettingsViewController: UITableViewController {
     }
 	
 	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
-		
+		for f in timerModeFields {
+			print(f.text)
+		}
 	}
 }
