@@ -22,6 +22,7 @@ class SettingsViewController: UITableViewController {
 		provideDefaultValues()
 		timerModeFields = [pomodoroField, shortBreakField, longBreakField]
 		textFields = [pomodoroField, shortBreakField, longBreakField, vibrationField]
+		setKeyboards()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,6 +41,13 @@ class SettingsViewController: UITableViewController {
 		pomodoroField.text = "\(pomodoro.seconds)"
 		shortBreakField.text = "\(shortBreak.seconds)"
 		longBreakField.text = "\(longBreak.seconds)"
+		vibrationField.text = "3"
+	}
+	
+	func setKeyboards() {
+		for f in textFields {
+			f.keyboardType = .numberPad
+		}
 	}
 	
 	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
