@@ -70,6 +70,13 @@ class SettingsViewController: UITableViewController {
 		return true
 	}
 	
+	func presentAlert() {
+		let invalidEntryAlert = UIAlertController(title: "Invalid entry", message: "Please provide valid values.", preferredStyle: UIAlertControllerStyle.alert)
+		let dismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil)
+		invalidEntryAlert.addAction(dismiss)
+		self.present(invalidEntryAlert, animated: true, completion: nil)
+	}
+	
 	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
 		for f in timerModeFields {
 			print(f.text)
