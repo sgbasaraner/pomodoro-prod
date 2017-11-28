@@ -66,9 +66,9 @@
 			children = (
 				7A7F7D941FC838B700D1C011 /* AppDelegate.swift */,
 				7A7F7D961FC838B700D1C011 /* MainViewController.swift */,
-				7A9B48371FCD752600CFF9D0 /* NumberedCell.swift */,
 				7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */,
 				7A7F7DA81FC8549600D1C011 /* Extensions.swift */,
+				7A9B48371FCD752600CFF9D0 /* NumberedCell.swift */,
 				7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */,
 				7A48DD201FC8734E0093FDDA /* TimerModeButton.swift */,
 				7A7F7D981FC838B700D1C011 /* Main.storyboard */,
