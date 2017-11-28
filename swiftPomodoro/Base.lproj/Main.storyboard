@@ -97,7 +97,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="5pc-Wr-mkr">
-                        <barButtonItem key="rightBarButtonItem" title="⚙" id="3Ri-24-qAk"/>
+                        <barButtonItem key="rightBarButtonItem" title="⚙" id="3Ri-24-qAk">
+                            <connections>
+                                <action selector="settingsTouch:" destination="BYZ-38-t0r" id="oMe-Ql-zrI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="longBreakButton" destination="59I-7p-6tu" id="Krb-Hv-EuX"/>

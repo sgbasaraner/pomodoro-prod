@@ -124,5 +124,10 @@ class ViewController: UIViewController {
 		resetButton.backgroundColor = UIColor(red:0.91, green:0.91, blue:0.91, alpha:1.0)
 		resetButton.setTitleColor(UIColor.black, for: .normal)
 	}
+    
+    @IBAction func settingsTouch(_ sender: UIBarButtonItem) {
+        print("settings touched")
+    }
+    
 }
 
