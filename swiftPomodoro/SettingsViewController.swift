@@ -39,10 +39,11 @@ class SettingsViewController: UITableViewController {
 	
 	func provideDefaultValues() {
 		let modes = generateTimerModes()
+		let def = UserDefaults()
 		pomodoroField.text = "\(modes[0].seconds)"
 		shortBreakField.text = "\(modes[1].seconds)"
 		longBreakField.text = "\(modes[2].seconds)"
-		vibrationField.text = "3"
+		vibrationField.text = String(def.integer(forKey: "vibrationCount"))
 	}
 	
 	func setKeyboards() {

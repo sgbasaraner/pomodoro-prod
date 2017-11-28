@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
         if seconds < 1 {
             timer.invalidate()
 			timerRunning = false
-			vibrate(for: 3)
+			vibrate()
 			presentAlert()
         } else {
             seconds -= 1
@@ -104,8 +104,10 @@ class MainViewController: UIViewController {
 		present(alert, animated: true, completion: nil)
 	}
 	
-	func vibrate(for times: Int) {
+	func vibrate() {
+		let def = UserDefaults()
 		let generator = UIImpactFeedbackGenerator(style: .heavy)
+		let times = def.integer(forKey: "vibrationCount")
 		for _ in 0...times {
 			generator.impactOccurred()
 		}
