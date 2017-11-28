@@ -111,11 +111,12 @@
                         <outlet property="startButton" destination="5c5-NJ-bTn" id="4vW-IZ-i4Z"/>
                         <outlet property="stopButton" destination="aQN-a9-sv6" id="5QB-vf-86f"/>
                         <outlet property="timerLabel" destination="5BJ-Ox-blh" id="HFs-Gb-lXv"/>
+                        <segue destination="GsX-FU-nEx" kind="show" identifier="toSettings" id="J8g-Tw-ENB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="33.733133433283363"/>
+            <point key="canvasLocation" x="345" y="34"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="QhF-qW-1Yu">

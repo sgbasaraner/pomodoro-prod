@@ -126,8 +126,7 @@ class MainViewController: UIViewController {
 	}
     
     @IBAction func settingsTouch(_ sender: UIBarButtonItem) {
-        print("settings touched")
+        performSegue(withIdentifier: "toSettings", sender: self)
     }
-    
 }
 
