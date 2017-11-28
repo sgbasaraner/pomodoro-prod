@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
 		setupButtons()
 		timerModes = generateTimerModes()
         seconds = currentMode.seconds
+		timerLabel.text = seconds.timerString()
 		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
 		highlight(pomodoroButton)
     }
