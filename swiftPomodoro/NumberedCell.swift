@@ -10,4 +10,5 @@ import UIKit
 
 class NumberedCell: UITableViewCell {
 	@IBOutlet var numberField: UITextField!
+	@IBOutlet var title: UILabel!
 }
