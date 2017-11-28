@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  swiftPomodoro
 //
 //  Created by Sarp Guney on 24.11.2017.
@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
 	@IBOutlet weak var startButton: UIButton!
