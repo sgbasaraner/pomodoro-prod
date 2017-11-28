@@ -78,8 +78,12 @@ class SettingsViewController: UITableViewController {
 	}
 	
 	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
-		for f in timerModeFields {
-			print(f.text)
+		if checkValidity() {
+			for f in timerModeFields {
+				print(f.text)
+			}
+		} else {
+			presentAlert()
 		}
 	}
 }
