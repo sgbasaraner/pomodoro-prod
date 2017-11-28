@@ -96,6 +96,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="⚙" id="G0Z-ks-LKA"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="longBreakButton" destination="59I-7p-6tu" id="Krb-Hv-EuX"/>
                         <outlet property="pomodoroButton" destination="BLF-Jr-dnB" id="ofL-1c-gwP"/>
