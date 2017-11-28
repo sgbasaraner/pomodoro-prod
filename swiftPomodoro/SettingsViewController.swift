@@ -85,9 +85,22 @@ class SettingsViewController: UITableViewController {
 		def.set(Int(textFields[3].text!)!, forKey: "vibrationCount")
 	}
 	
+	func goToTimer() {
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: "timer")
+		UIView.transition(from: self.view,
+						  to: (viewController?.view)!,
+						  duration: 0.4,
+						  options: UIViewAnimationOptions.transitionCrossDissolve,
+						  completion:
+			{ (finished: Bool) -> () in
+				self.navigationController?.viewControllers = [viewController!]
+		})
+	}
+	
 	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
 		if checkValidity() {
 			saveValues()
+			goToTimer()
 		} else {
 			presentAlert()
 		}
