@@ -15,13 +15,13 @@ class SettingsViewController: UITableViewController {
 	@IBOutlet weak var longBreakField: UITextField!
 	@IBOutlet weak var vibrationField: UITextField!
 	var timerModeFields = [UITextField]()
+	var textFields = [UITextField]()
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-		pomodoroField.text = "\(pomodoro.seconds)"
-		shortBreakField.text = "\(shortBreak.seconds)"
-		longBreakField.text = "\(longBreak.seconds)"
+		provideDefaultValues()
 		timerModeFields = [pomodoroField, shortBreakField, longBreakField]
+		textFields = [pomodoroField, shortBreakField, longBreakField, vibrationField]
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,6 +35,12 @@ class SettingsViewController: UITableViewController {
 			return 2
 		}
     }
+	
+	func provideDefaultValues() {
+		pomodoroField.text = "\(pomodoro.seconds)"
+		shortBreakField.text = "\(shortBreak.seconds)"
+		longBreakField.text = "\(longBreak.seconds)"
+	}
 	
 	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
 		for f in timerModeFields {
