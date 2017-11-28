@@ -118,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="385" y="34"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="cjE-yI-AA7">
             <objects>
                 <tableViewController id="Z4I-qe-lY8" customClass="SettingsViewController" customModule="swiftPomodoro" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,6 +141,9 @@
                             <outlet property="delegate" destination="Z4I-qe-lY8" id="U1u-R4-6Z5"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="XCm-sA-6PE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fTy-z8-w0h"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gy-Cd-3gW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
