@@ -49,7 +49,7 @@ class MainViewController: UIViewController {
         if seconds < 1 {
             timer.invalidate()
 			timerRunning = false
-			vibrate()
+			vibrate(for: 3)
 			presentAlert()
         } else {
             seconds -= 1
@@ -101,9 +101,11 @@ class MainViewController: UIViewController {
 		present(alert, animated: true, completion: nil)
 	}
 	
-	func vibrate() {
+	func vibrate(for times: Int) {
 		let generator = UIImpactFeedbackGenerator(style: .heavy)
-		generator.impactOccurred()
+		for _ in 0...times {
+			generator.impactOccurred()
+		}
 	}
 	
 	func highlight(_ button: TimerModeButton) {
