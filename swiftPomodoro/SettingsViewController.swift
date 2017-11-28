@@ -51,6 +51,25 @@ class SettingsViewController: UITableViewController {
 		}
 	}
 	
+	func checkValidity() -> Bool {
+		for f in textFields {
+			let t = f.text!
+			if (t.isEmpty || Int(t) == nil) {
+				return false
+			}
+			if f != vibrationField {
+				if Int(t)! < 1 {
+					return false
+				}
+			} else {
+				if Int(t)! < 0 {
+					return false
+				}
+			}
+		}
+		return true
+	}
+	
 	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
 		for f in timerModeFields {
 			print(f.text)
