@@ -77,11 +77,17 @@ class SettingsViewController: UITableViewController {
 		self.present(invalidEntryAlert, animated: true, completion: nil)
 	}
 	
+	func saveValues() {
+		let def = UserDefaults()
+		def.set(Int(textFields[0].text!)!, forKey: "pomodoroSeconds")
+		def.set(Int(textFields[1].text!)!, forKey: "shortBreakSeconds")
+		def.set(Int(textFields[2].text!)!, forKey: "longBreakSeconds")
+		def.set(Int(textFields[3].text!)!, forKey: "vibrationCount")
+	}
+	
 	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
 		if checkValidity() {
-			for f in timerModeFields {
-				print(f.text)
-			}
+			saveValues()
 		} else {
 			presentAlert()
 		}
