@@ -18,6 +18,9 @@ class SettingsViewController: UITableViewController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		pomodoroField.text = "\(pomodoro.seconds)"
+		shortBreakField.text = "\(shortBreak.seconds)"
+		longBreakField.text = "\(longBreak.seconds)"
 		timerModeFields = [pomodoroField, shortBreakField, longBreakField]
     }
 
