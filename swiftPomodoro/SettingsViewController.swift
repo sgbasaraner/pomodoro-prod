@@ -40,9 +40,9 @@ class SettingsViewController: UITableViewController {
 	func provideDefaultValues() {
 		let modes = generateTimerModes()
 		let def = UserDefaults()
-		pomodoroField.text = "\(modes[0].seconds)"
-		shortBreakField.text = "\(modes[1].seconds)"
-		longBreakField.text = "\(modes[2].seconds)"
+		pomodoroField.text = "\(modes[0].seconds / 60)"
+		shortBreakField.text = "\(modes[1].seconds / 60)"
+		longBreakField.text = "\(modes[2].seconds / 60)"
 		vibrationSwitch.isOn = def.bool(forKey: "vibrationSwitch")
 	}
 	
@@ -71,9 +71,9 @@ class SettingsViewController: UITableViewController {
 	
 	func saveValues() {
 		let def = UserDefaults()
-		def.set(Int(textFields[0].text!)!, forKey: "pomodoroSeconds")
-		def.set(Int(textFields[1].text!)!, forKey: "shortBreakSeconds")
-		def.set(Int(textFields[2].text!)!, forKey: "longBreakSeconds")
+		def.set(Int(textFields[0].text!)! * 60, forKey: "pomodoroSeconds")
+		def.set(Int(textFields[1].text!)! * 60, forKey: "shortBreakSeconds")
+		def.set(Int(textFields[2].text!)! * 60, forKey: "longBreakSeconds")
 		def.set(vibrationSwitch.isOn, forKey: "vibrationSwitch")
 	}
 	
