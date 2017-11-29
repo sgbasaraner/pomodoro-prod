@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A39CD171FCE9C2F00149D7C /* car-alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A39CD161FCE9C2F00149D7C /* car-alarm.mp3 */; };
+		7A39CD191FCE9C3C00149D7C /* fire-pager.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A39CD181FCE9C3C00149D7C /* fire-pager.mp3 */; };
+		7A39CD1B1FCE9C5700149D7C /* electronic-chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A39CD1A1FCE9C5700149D7C /* electronic-chime.mp3 */; };
+		7A39CD1D1FCE9C9800149D7C /* simple-tone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A39CD1C1FCE9C9800149D7C /* simple-tone.mp3 */; };
 		7A48DD211FC8734E0093FDDA /* TimerModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A48DD201FC8734E0093FDDA /* TimerModeButton.swift */; };
 		7A7F7D951FC838B700D1C011 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7D941FC838B700D1C011 /* AppDelegate.swift */; };
 		7A7F7D971FC838B700D1C011 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7D961FC838B700D1C011 /* MainViewController.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A39CD161FCE9C2F00149D7C /* car-alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "car-alarm.mp3"; sourceTree = "<group>"; };
+		7A39CD181FCE9C3C00149D7C /* fire-pager.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fire-pager.mp3"; sourceTree = "<group>"; };
+		7A39CD1A1FCE9C5700149D7C /* electronic-chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "electronic-chime.mp3"; sourceTree = "<group>"; };
+		7A39CD1C1FCE9C9800149D7C /* simple-tone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "simple-tone.mp3"; sourceTree = "<group>"; };
 		7A48DD201FC8734E0093FDDA /* TimerModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModeButton.swift; sourceTree = "<group>"; };
 		7A7F7D911FC838B700D1C011 /* swiftPomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftPomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7F7D941FC838B700D1C011 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A39CD151FCE9C2000149D7C /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				7A39CD1C1FCE9C9800149D7C /* simple-tone.mp3 */,
+				7A39CD1A1FCE9C5700149D7C /* electronic-chime.mp3 */,
+				7A39CD161FCE9C2F00149D7C /* car-alarm.mp3 */,
+				7A39CD181FCE9C3C00149D7C /* fire-pager.mp3 */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
 		7A7F7D881FC838B700D1C011 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +91,7 @@
 				7A7F7D9B1FC838B700D1C011 /* Assets.xcassets */,
 				7A7F7D9D1FC838B700D1C011 /* LaunchScreen.storyboard */,
 				7A7F7DA01FC838B700D1C011 /* Info.plist */,
+				7A39CD151FCE9C2000149D7C /* sounds */,
 			);
 			path = swiftPomodoro;
 			sourceTree = "<group>";
@@ -136,8 +156,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A7F7D9F1FC838B700D1C011 /* LaunchScreen.storyboard in Resources */,
+				7A39CD1D1FCE9C9800149D7C /* simple-tone.mp3 in Resources */,
+				7A39CD1B1FCE9C5700149D7C /* electronic-chime.mp3 in Resources */,
 				7A7F7D9C1FC838B700D1C011 /* Assets.xcassets in Resources */,
 				7A7F7D9A1FC838B700D1C011 /* Main.storyboard in Resources */,
+				7A39CD191FCE9C3C00149D7C /* fire-pager.mp3 in Resources */,
+				7A39CD171FCE9C2F00149D7C /* car-alarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
