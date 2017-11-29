@@ -25,14 +25,11 @@ func getSounds() -> [String] {
 	return sounds
 }
 
-func prepareSoundsForDisplay(sounds: [String]) -> [String]{
-	var result = [String]()
-	for s in sounds {
-		var a = s
-		a.removeLast(4)
-		a = a.replacingOccurrences(of: "-", with: " ", options: .literal, range: nil)
-		a = a.titlecased()
-		result.append(a)
-	}
-	return result
+func getCurrentSoundURL() -> URL {
+	let def = UserDefaults()
+	let sounds = getSounds()
+	var currentSound = sounds[def.integer(forKey: "alertSound")]
+	currentSound.removeLast(4)
+	let path = Bundle.main.path(forResource: currentSound, ofType: "mp3")!
+	return URL(fileURLWithPath: path)
 }
