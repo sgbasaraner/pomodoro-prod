@@ -130,7 +130,7 @@
                         <sections>
                             <tableViewSection headerTitle="Duration" id="77e-q6-Tll">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PomodoroCell" id="miC-vE-c5G" customClass="NumberedCell" customModule="swiftPomodoro" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PomodoroCell" id="miC-vE-c5G">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="miC-vE-c5G" id="mKS-GR-ca7">
@@ -165,12 +165,8 @@
                                                 <constraint firstItem="KbD-6u-1Gh" firstAttribute="centerY" secondItem="mKS-GR-ca7" secondAttribute="centerY" id="pd1-Yp-j9Q"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="numberField" destination="KbD-6u-1Gh" id="6VO-gj-W94"/>
-                                            <outlet property="title" destination="RGK-vy-v4i" id="Nok-74-61H"/>
-                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShortBreakCell" id="i3N-YJ-gKM" customClass="NumberedCell" customModule="swiftPomodoro" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShortBreakCell" id="i3N-YJ-gKM">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i3N-YJ-gKM" id="wyn-Xn-7g7">
@@ -205,12 +201,8 @@
                                                 <constraint firstItem="QUk-x2-zMY" firstAttribute="centerY" secondItem="wyn-Xn-7g7" secondAttribute="centerY" id="ryg-nb-6ZR"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="numberField" destination="QUk-x2-zMY" id="I3H-1W-gLI"/>
-                                            <outlet property="title" destination="2qO-Tc-XaA" id="I6O-pd-kq0"/>
-                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LongBreakCell" id="uC8-xS-D98" customClass="NumberedCell" customModule="swiftPomodoro" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LongBreakCell" id="uC8-xS-D98">
                                         <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uC8-xS-D98" id="vDY-EI-B7Q">
@@ -246,10 +238,6 @@
                                                 <constraint firstItem="Fkm-DB-RyV" firstAttribute="centerY" secondItem="vDY-EI-B7Q" secondAttribute="centerY" id="yj5-q1-WMu"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="numberField" destination="vFz-S6-P3u" id="xhB-dH-PbV"/>
-                                            <outlet property="title" destination="V0O-IP-Zc6" id="hQE-bF-EL1"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -279,9 +267,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="pRK-r0-U3T" secondAttribute="trailing" constant="18" id="ovl-YE-kcH"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="title" destination="v6b-hW-l6G" id="Lrh-T1-KXJ"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WDL-ta-sZr">
                                         <rect key="frame" x="0.0" y="232" width="375" height="44"/>
