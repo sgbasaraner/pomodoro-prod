@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import AVFoundation
 
 class MainViewController: UIViewController {
     
@@ -53,6 +54,7 @@ class MainViewController: UIViewController {
 			let def = UserDefaults()
             timer.invalidate()
 			timerRunning = false
+			playSound()
 			if def.bool(forKey: "vibrationSwitch") {
 				vibrate()
 			}
@@ -85,7 +87,9 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func startTouch(_ sender: UIButton) {
-        runTimer()
+		if seconds >= 1 {
+			runTimer()
+		}
     }
     
     @IBAction func stopTouch(_ sender: UIButton) {
@@ -112,6 +116,12 @@ class MainViewController: UIViewController {
 		for _ in 0...2 {
 			generator.impactOccurred()
 		}
+	}
+	
+	func playSound() {
+		let url = getCurrentSoundURL()
+		let sound = try! AVAudioPlayer(contentsOf: url)
+		sound.play()
 	}
 	
 	func highlight(_ button: TimerModeButton) {
