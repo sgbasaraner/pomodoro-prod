@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var longBreakButton: TimerModeButton!
 	var timerModeButtons = [TimerModeButton]()
 	
+	var audioPlayer: AVAudioPlayer? = nil
+	
     var seconds = 0
     var timer = Timer()
     var timerRunning = false
@@ -120,8 +122,8 @@ class MainViewController: UIViewController {
 	
 	func playSound() {
 		let url = getCurrentSoundURL()
-		let sound = try! AVAudioPlayer(contentsOf: url)
-		sound.play()
+		audioPlayer = try! AVAudioPlayer(contentsOf: url)
+		audioPlayer!.play()
 	}
 	
 	func highlight(_ button: TimerModeButton) {
