@@ -50,9 +50,12 @@ class MainViewController: UIViewController {
     
     @objc func updateTimer() {
         if seconds < 1 {
+			let def = UserDefaults()
             timer.invalidate()
 			timerRunning = false
-			vibrate()
+			if def.bool(forKey: "vibrationSwitch") {
+				vibrate()
+			}
 			presentAlert()
         } else {
             seconds -= 1
@@ -105,10 +108,8 @@ class MainViewController: UIViewController {
 	}
 	
 	func vibrate() {
-		let def = UserDefaults()
 		let generator = UIImpactFeedbackGenerator(style: .heavy)
-		let times = def.integer(forKey: "vibrationCount")
-		for _ in 0...times {
+		for _ in 0...2 {
 			generator.impactOccurred()
 		}
 	}

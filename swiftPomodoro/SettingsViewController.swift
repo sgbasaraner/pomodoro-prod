@@ -13,15 +13,13 @@ class SettingsViewController: UITableViewController {
 	@IBOutlet weak var pomodoroField: UITextField!
 	@IBOutlet weak var shortBreakField: UITextField!
 	@IBOutlet weak var longBreakField: UITextField!
-	@IBOutlet weak var vibrationField: UITextField!
-	var timerModeFields = [UITextField]()
+	@IBOutlet weak var vibrationSwitch: UISwitch!
 	var textFields = [UITextField]()
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		provideDefaultValues()
-		timerModeFields = [pomodoroField, shortBreakField, longBreakField]
-		textFields = [pomodoroField, shortBreakField, longBreakField, vibrationField]
+		textFields = [pomodoroField, shortBreakField, longBreakField]
 		setKeyboards()
     }
 
@@ -43,7 +41,7 @@ class SettingsViewController: UITableViewController {
 		pomodoroField.text = "\(modes[0].seconds)"
 		shortBreakField.text = "\(modes[1].seconds)"
 		longBreakField.text = "\(modes[2].seconds)"
-		vibrationField.text = String(def.integer(forKey: "vibrationCount"))
+		vibrationSwitch.isOn = def.bool(forKey: "vibrationSwitch")
 	}
 	
 	func setKeyboards() {
@@ -57,15 +55,6 @@ class SettingsViewController: UITableViewController {
 			let t = f.text!
 			if (t.isEmpty || Int(t) == nil) {
 				return false
-			}
-			if f != vibrationField {
-				if Int(t)! < 1 {
-					return false
-				}
-			} else {
-				if Int(t)! < 0 {
-					return false
-				}
 			}
 		}
 		return true
@@ -83,7 +72,7 @@ class SettingsViewController: UITableViewController {
 		def.set(Int(textFields[0].text!)!, forKey: "pomodoroSeconds")
 		def.set(Int(textFields[1].text!)!, forKey: "shortBreakSeconds")
 		def.set(Int(textFields[2].text!)!, forKey: "longBreakSeconds")
-		def.set(Int(textFields[3].text!)!, forKey: "vibrationCount")
+		def.set(vibrationSwitch.isOn, forKey: "vibrationSwitch")
 	}
 	
 	func goToTimer() {

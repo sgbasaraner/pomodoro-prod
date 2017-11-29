@@ -262,28 +262,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VTf-fp-rur">
-                                                    <rect key="frame" x="294" y="6" width="25" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vibration Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6b-hW-l6G">
-                                                    <rect key="frame" x="16" y="12" width="120" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vibration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6b-hW-l6G">
+                                                    <rect key="frame" x="16" y="12" width="69" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRK-r0-U3T">
+                                                    <rect key="frame" x="308" y="6" width="51" height="31"/>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="v6b-hW-l6G" firstAttribute="leading" secondItem="V8Z-7N-WGV" secondAttribute="leadingMargin" id="O7k-yy-hiw"/>
                                                 <constraint firstItem="v6b-hW-l6G" firstAttribute="centerY" secondItem="V8Z-7N-WGV" secondAttribute="centerY" id="X3t-g9-gAg"/>
-                                                <constraint firstItem="VTf-fp-rur" firstAttribute="centerY" secondItem="V8Z-7N-WGV" secondAttribute="centerY" id="cPi-Iv-aSx"/>
-                                                <constraint firstAttribute="trailing" secondItem="VTf-fp-rur" secondAttribute="trailing" constant="56" id="hIs-Vm-jmH"/>
+                                                <constraint firstItem="pRK-r0-U3T" firstAttribute="centerY" secondItem="V8Z-7N-WGV" secondAttribute="centerY" id="cfB-gN-mgH"/>
+                                                <constraint firstAttribute="trailing" secondItem="pRK-r0-U3T" secondAttribute="trailing" constant="18" id="ovl-YE-kcH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="numberField" destination="VTf-fp-rur" id="XPW-pC-pdJ"/>
                                             <outlet property="title" destination="v6b-hW-l6G" id="Lrh-T1-KXJ"/>
                                         </connections>
                                     </tableViewCell>
@@ -323,7 +319,7 @@
                         <outlet property="longBreakField" destination="vFz-S6-P3u" id="hnC-NY-I8m"/>
                         <outlet property="pomodoroField" destination="KbD-6u-1Gh" id="7fj-VZ-Z30"/>
                         <outlet property="shortBreakField" destination="QUk-x2-zMY" id="4zL-sY-L6P"/>
-                        <outlet property="vibrationField" destination="VTf-fp-rur" id="v7s-9x-YHf"/>
+                        <outlet property="vibrationSwitch" destination="pRK-r0-U3T" id="ygf-GC-cyq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gy-Cd-3gW" userLabel="First Responder" sceneMemberID="firstResponder"/>
