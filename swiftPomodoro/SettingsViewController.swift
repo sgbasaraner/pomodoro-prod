@@ -26,14 +26,16 @@ class SettingsViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
 			return 3
-		} else {
+		} else if section == 1 {
 			return 2
+		} else {
+			return 1
 		}
     }
 	
