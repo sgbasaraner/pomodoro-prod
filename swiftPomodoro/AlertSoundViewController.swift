@@ -14,7 +14,8 @@ class AlertSoundViewController: UITableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		soundsForDisplay = prepareSoundsForDisplay(sounds: getSounds())
+		let sounds = getSounds()
+		soundsForDisplay = prepareSoundsForDisplay(sounds: sounds)
     }
 	
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,8 +29,13 @@ class AlertSoundViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 		cell.textLabel?.text = soundsForDisplay[indexPath.row]
-		
 		return cell
+	}
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let def = UserDefaults()
+		def.set(indexPath.row, forKey: "alertSound")
+		goToTimer()
 	}
 	
 	func getSounds() -> [String] {
@@ -59,5 +65,17 @@ class AlertSoundViewController: UITableViewController {
 			result.append(a)
 		}
 		return result
+	}
+	
+	func goToTimer() {
+		let viewController = self.storyboard?.instantiateViewController(withIdentifier: "timer")
+		UIView.transition(from: self.view,
+						  to: (viewController?.view)!,
+						  duration: 0.4,
+						  options: UIViewAnimationOptions.transitionCrossDissolve,
+						  completion:
+			{ (finished: Bool) -> () in
+				self.navigationController?.viewControllers = [viewController!]
+		})
 	}
 }
