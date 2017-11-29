@@ -282,7 +282,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otD-of-1uu">
+                                                    <rect key="frame" x="317" y="12" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="otD-of-1uu" firstAttribute="centerY" secondItem="1ZU-8s-arF" secondAttribute="centerY" id="11s-hw-dld"/>
+                                                <constraint firstItem="otD-of-1uu" firstAttribute="trailing" secondItem="1ZU-8s-arF" secondAttribute="trailingMargin" id="OEj-v9-hBY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="N9d-LW-eiR" kind="show" id="B47-Zc-fEb"/>
@@ -304,6 +314,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="alertSoundLabel" destination="otD-of-1uu" id="zDq-Ip-umF"/>
                         <outlet property="longBreakField" destination="vFz-S6-P3u" id="hnC-NY-I8m"/>
                         <outlet property="pomodoroField" destination="KbD-6u-1Gh" id="7fj-VZ-Z30"/>
                         <outlet property="shortBreakField" destination="QUk-x2-zMY" id="4zL-sY-L6P"/>

@@ -14,11 +14,13 @@ class SettingsViewController: UITableViewController {
 	@IBOutlet weak var shortBreakField: UITextField!
 	@IBOutlet weak var longBreakField: UITextField!
 	@IBOutlet weak var vibrationSwitch: UISwitch!
+	@IBOutlet weak var alertSoundLabel: UILabel!
 	var textFields = [UITextField]()
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		provideDefaultValues()
+		alertSoundLabel.text = getCurrentSoundFormatted()
 		textFields = [pomodoroField, shortBreakField, longBreakField]
 		setKeyboards()
     }
