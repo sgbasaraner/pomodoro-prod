@@ -12,6 +12,7 @@ class AlertSoundViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		prepareSoundsForDisplay(sounds: getSounds())
     }
 	
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,5 +40,17 @@ class AlertSoundViewController: UITableViewController {
 			print(error)
 		}
 		return sounds
+	}
+	
+	func prepareSoundsForDisplay(sounds: [String]) -> [String]{
+		var result = [String]()
+		for s in sounds {
+			var a = s
+			a.removeLast(4)
+			a = a.replacingOccurrences(of: "-", with: " ", options: .literal, range: nil)
+			a = a.titlecased()
+			result.append(a)
+		}
+		return result
 	}
 }
