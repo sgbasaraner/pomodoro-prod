@@ -39,6 +39,26 @@ class SettingsViewController: UITableViewController {
 		}
     }
 	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.section == 2 && indexPath.row == 0 {
+			let alert = UIAlertController(title: "Reset to defaults?", message: "This will replace all of your settings with the default ones.", preferredStyle: UIAlertControllerStyle.alert)
+			let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction!) in
+				// reset to defaults and go to timer
+				let def = UserDefaults()
+				def.set(1500, forKey: "pomodoroSeconds")
+				def.set(300, forKey: "shortBreakSeconds")
+				def.set(600, forKey: "longBreakSeconds")
+				def.set(false, forKey: "vibrationSwitch")
+				def.set(0, forKey: "alertSound")
+				self.goToTimer()
+			}
+			let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil)
+			alert.addAction(ok)
+			alert.addAction(cancel)
+			present(alert, animated: true, completion: nil)
+		}
+	}
+	
 	func provideDefaultValues() {
 		let modes = generateTimerModes()
 		let def = UserDefaults()
