@@ -20,10 +20,12 @@ class SettingsViewController: UITableViewController, IsSettings {
 	
 	var audioPlayer: AVAudioPlayer? = nil
 	
+	let soundOP = SoundOperator()
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		provideDefaultValues()
-		alertSoundLabel.text = getCurrentSoundFormatted()
+		alertSoundLabel.text = soundOP.getCurrentSoundFormatted()
 		textFields = [pomodoroField, shortBreakField, longBreakField]
 		setKeyboards()
     }
@@ -64,7 +66,7 @@ class SettingsViewController: UITableViewController, IsSettings {
 	
 	func setAlertSoundLabel(){
 		if temporarySound != nil {
-			alertSoundLabel.text = formatSound(sound: temporarySound!)
+			alertSoundLabel.text = soundOP.formatSound(sound: temporarySound!)
 		}
 	}
 	
@@ -134,7 +136,7 @@ class SettingsViewController: UITableViewController, IsSettings {
 	}
 	
 	func playSound() {
-		let url = getSoundURL(sound: temporarySound!)
+		let url = soundOP.getSoundURL(sound: temporarySound!)
 		audioPlayer = try! AVAudioPlayer(contentsOf: url)
 		audioPlayer!.play()
 	}

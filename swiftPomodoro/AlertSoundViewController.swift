@@ -12,10 +12,11 @@ class AlertSoundViewController: UITableViewController {
 
 	var soundsForDisplay = [String]()
 	var settingsViewController: IsSettings?
+	let soundOP = SoundOperator()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		let sounds = getSounds()
+		let sounds = soundOP.getSounds()
 		soundsForDisplay = prepareSoundsForDisplay(sounds: sounds)
 		findSettingsViewController()
     }

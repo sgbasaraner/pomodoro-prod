@@ -29,6 +29,8 @@ class MainViewController: UIViewController {
 	
 	var timerModes = [TimerMode]()
 	var currentMode = generateTimerModes()[0]
+	
+	let soundOP = SoundOperator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,7 +124,7 @@ class MainViewController: UIViewController {
 	}
 	
 	func playSound() {
-		let url = getCurrentSoundURL()
+		let url = soundOP.getCurrentSoundURL()
 		audioPlayer = try! AVAudioPlayer(contentsOf: url)
 		audioPlayer!.play()
 	}
