@@ -114,10 +114,11 @@ class MainViewController: UIViewController {
 	}
 	
 	func vibrate() {
-		let generator = UIImpactFeedbackGenerator(style: .heavy)
-		for _ in 0...2 {
-			generator.impactOccurred()
-		}
+		// vibrates twice with one second interval
+		AudioServicesPlaySystemSoundWithCompletion(kSystemSoundID_Vibrate, nil)
+		DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+			AudioServicesPlaySystemSoundWithCompletion(kSystemSoundID_Vibrate, nil)
+		})
 	}
 	
 	func playSound() {
