@@ -11,7 +11,7 @@ import UIKit
 class AlertSoundViewController: UITableViewController {
 
 	var soundsForDisplay = [String]()
-	var settingsViewController: HasSoundLabel?
+	var settingsViewController: IsSettings?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,7 @@ class AlertSoundViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		temporarySound = indexPath.row
 		settingsViewController?.setAlertSoundLabel()
+		settingsViewController?.playSound()
 		_ = navigationController?.popViewController(animated: true)
 	}
 	
@@ -68,7 +69,7 @@ class AlertSoundViewController: UITableViewController {
 		// finds SettingsViewController to change its alertSoundLabel
 		// with the name of the sound selected in this ViewController
 		for vc in (self.navigationController?.viewControllers)! {
-			if let controller = vc as? HasSoundLabel {
+			if let controller = vc as? IsSettings {
 				settingsViewController = controller
 			}
 		}

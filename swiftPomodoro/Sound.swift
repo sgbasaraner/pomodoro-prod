@@ -54,3 +54,11 @@ func formatSound(sound: Int) -> String {
 	currentSound = currentSound.titlecased()
 	return currentSound
 }
+
+func getSoundURL(sound: Int) -> URL {
+	let sounds = getSounds()
+	var currentSound = sounds[sound]
+	currentSound.removeLast(4)
+	let path = Bundle.main.path(forResource: currentSound, ofType: "mp3")!
+	return URL(fileURLWithPath: path)
+}

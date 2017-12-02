@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class SettingsViewController: UITableViewController, HasSoundLabel {
+class SettingsViewController: UITableViewController, IsSettings {
 
 	@IBOutlet weak var pomodoroField: UITextField!
 	@IBOutlet weak var shortBreakField: UITextField!
@@ -16,6 +17,8 @@ class SettingsViewController: UITableViewController, HasSoundLabel {
 	@IBOutlet weak var vibrationSwitch: UISwitch!
 	@IBOutlet weak var alertSoundLabel: UILabel!
 	var textFields = [UITextField]()
+	
+	var audioPlayer: AVAudioPlayer? = nil
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,5 +131,11 @@ class SettingsViewController: UITableViewController, HasSoundLabel {
 		} else {
 			presentAlert()
 		}
+	}
+	
+	func playSound() {
+		let url = getSoundURL(sound: temporarySound!)
+		audioPlayer = try! AVAudioPlayer(contentsOf: url)
+		audioPlayer!.play()
 	}
 }

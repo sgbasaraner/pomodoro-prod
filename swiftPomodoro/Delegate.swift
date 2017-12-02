@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol HasSoundLabel {
+protocol IsSettings {
 	func setAlertSoundLabel()
+	func playSound()
 }
