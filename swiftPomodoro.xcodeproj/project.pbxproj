@@ -22,6 +22,7 @@
 		7A7F7DA71FC8516A00D1C011 /* TimerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */; };
 		7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7DA81FC8549600D1C011 /* Extensions.swift */; };
 		7A9B48361FCD59CA00CFF9D0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */; };
+		7ADF77271FD2F27C00D4CDE3 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77261FD2F27C00D4CDE3 /* Delegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMode.swift; sourceTree = "<group>"; };
 		7A7F7DA81FC8549600D1C011 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7ADF77261FD2F27C00D4CDE3 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				7A7F7D941FC838B700D1C011 /* AppDelegate.swift */,
 				7A7F7D961FC838B700D1C011 /* MainViewController.swift */,
 				7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */,
+				7ADF77261FD2F27C00D4CDE3 /* Delegate.swift */,
 				7A39CD1E1FCE9D8200149D7C /* AlertSoundViewController.swift */,
 				7A39CD201FCEACB300149D7C /* Sound.swift */,
 				7A7F7DA81FC8549600D1C011 /* Extensions.swift */,
@@ -181,6 +184,7 @@
 				7A39CD1F1FCE9D8200149D7C /* AlertSoundViewController.swift in Sources */,
 				7A7F7D971FC838B700D1C011 /* MainViewController.swift in Sources */,
 				7A48DD211FC8734E0093FDDA /* TimerModeButton.swift in Sources */,
+				7ADF77271FD2F27C00D4CDE3 /* Delegate.swift in Sources */,
 				7A7F7D951FC838B700D1C011 /* AppDelegate.swift in Sources */,
 				7A7F7DA71FC8516A00D1C011 /* TimerMode.swift in Sources */,
 				7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */,

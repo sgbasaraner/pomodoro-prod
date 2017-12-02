@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UITableViewController, HasSoundLabel {
 
 	@IBOutlet weak var pomodoroField: UITextField!
 	@IBOutlet weak var shortBreakField: UITextField!
@@ -59,6 +59,12 @@ class SettingsViewController: UITableViewController {
 		}
 	}
 	
+	func setAlertSoundLabel(){
+		if temporarySound != nil {
+			alertSoundLabel.text = formatSound(sound: temporarySound!)
+		}
+	}
+	
 	func provideDefaultValues() {
 		let modes = generateTimerModes()
 		let def = UserDefaults()
@@ -97,6 +103,9 @@ class SettingsViewController: UITableViewController {
 		def.set(Int(textFields[1].text!)! * 60, forKey: "shortBreakSeconds")
 		def.set(Int(textFields[2].text!)! * 60, forKey: "longBreakSeconds")
 		def.set(vibrationSwitch.isOn, forKey: "vibrationSwitch")
+		if temporarySound != nil {
+			def.set(temporarySound!, forKey: "alertSound")
+		}
 	}
 	
 	func goToTimer() {
@@ -114,6 +123,7 @@ class SettingsViewController: UITableViewController {
 	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
 		if checkValidity() {
 			saveValues()
+			temporarySound = nil
 			goToTimer()
 		} else {
 			presentAlert()
