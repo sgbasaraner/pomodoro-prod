@@ -44,6 +44,7 @@ class MainViewController: UIViewController {
     
     func runTimer() {
         if !timerRunning {
+			UIApplication.shared.isIdleTimerDisabled = true
             timer = Timer.scheduledTimer(timeInterval: 1,
                                          target: self,
                                          selector: (#selector(self.updateTimer)),
@@ -63,6 +64,7 @@ class MainViewController: UIViewController {
 				vibrate()
 			}
 			presentAlert()
+			UIApplication.shared.isIdleTimerDisabled = false
         } else {
             seconds -= 1
             timerLabel.text = seconds.timerString()
