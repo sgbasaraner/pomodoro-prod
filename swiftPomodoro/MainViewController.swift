@@ -9,6 +9,7 @@
 import UIKit
 import AudioToolbox
 import AVFoundation
+import UserNotifications
 
 class MainViewController: UIViewController {
     
@@ -28,9 +29,11 @@ class MainViewController: UIViewController {
     var timerRunning = false
 	
 	var timerModes = [TimerMode]()
-	var currentMode = generateTimerModes()[0]
+	var currentMode = generateTimerModes()[0] // currentMode is Pomodoro by default
 	
 	let soundOP = SoundOperator()
+	
+	let notificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,7 @@ class MainViewController: UIViewController {
 		timerLabel.text = seconds.timerString()
 		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
 		highlight(pomodoroButton)
+		notificationCenter.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in })
     }
     
     func runTimer() {
@@ -75,6 +79,7 @@ class MainViewController: UIViewController {
         runTimer()
         currentMode = timerModes[0]
         seconds = currentMode.seconds
+		createNotification(for: currentMode)
 		highlight(sender)
     }
     
@@ -82,6 +87,7 @@ class MainViewController: UIViewController {
         runTimer()
         currentMode = timerModes[1]
         seconds = currentMode.seconds
+		createNotification(for: currentMode)
 		highlight(sender)
     }
     
@@ -89,12 +95,14 @@ class MainViewController: UIViewController {
         runTimer()
         currentMode = timerModes[2]
         seconds = currentMode.seconds
+		createNotification(for: currentMode)
 		highlight(sender)
     }
     
     @IBAction func startTouch(_ sender: UIButton) {
 		if seconds >= 1 {
 			runTimer()
+			createNotification(for: currentMode)
 		}
     }
     
@@ -106,6 +114,10 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func resetTouch(_ sender: UIButton) {
+		if timerRunning {
+			timer.invalidate()
+			timerRunning = false
+		}
         seconds = currentMode.seconds
         timerLabel.text = seconds.timerString()
     }
@@ -148,6 +160,34 @@ class MainViewController: UIViewController {
 		stopButton.setTitleColor(UIColor.white, for: .normal)
 		resetButton.backgroundColor = UIColor(red:0.91, green:0.91, blue:0.91, alpha:1.0)
 		resetButton.setTitleColor(UIColor.black, for: .normal)
+	}
+	
+	func removeAllNotifications() {
+		notificationCenter.removeAllPendingNotificationRequests()
+	}
+	
+	func createNotification(for mode: TimerMode) {
+		// remove all previous notifications
+		removeAllNotifications()
+		
+		// notification content
+		let content = UNMutableNotificationContent()
+		content.title = NSString.localizedUserNotificationString(forKey: "Hey!", arguments: nil)
+		content.body = NSString.localizedUserNotificationString(forKey: "\(mode.name) completed.", arguments: nil)
+		content.sound = UNNotificationSound.default()
+		content.badge = 1
+		
+		// trigger time
+		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(mode.seconds), repeats: false)
+		
+		// create the request
+		let request = UNNotificationRequest(identifier: "TimerNotification", content: content, trigger: trigger)
+		
+		notificationCenter.add(request) { (error : Error?) in
+			if let theError = error {
+				print(theError.localizedDescription)
+			}
+		}
 	}
 }
 
