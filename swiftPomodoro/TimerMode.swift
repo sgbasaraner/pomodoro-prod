@@ -25,6 +25,6 @@ func generateTimerModes() -> [TimerMode] {
 			defs[i] = prefs[i]
 		}
 	}
-	let result = [TimerMode(name: "Pomodoro", seconds: defs[0]), TimerMode(name: "Short break", seconds: defs[1]), TimerMode(name: "Long break", seconds: defs[2])]
+	let result = [TimerMode(name: "Domates", seconds: defs[0]), TimerMode(name: "Short break", seconds: defs[1]), TimerMode(name: "Long break", seconds: defs[2])]
 	return result
 }

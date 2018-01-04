@@ -4,13 +4,14 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Domates Timer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="timer" id="BYZ-38-t0r" customClass="MainViewController" customModule="swiftPomodoro" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +48,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BJ-Ox-blh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BJ-Ox-blh">
                                 <rect key="frame" x="56" y="274" width="262" height="119.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <nil key="textColor"/>
@@ -59,7 +60,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLF-Jr-dnB" customClass="TimerModeButton" customModule="swiftPomodoro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="119.5" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Pomodoro"/>
+                                        <state key="normal" title="Domates"/>
                                         <connections>
                                             <action selector="pomodoroTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8mk-Kz-5TM"/>
                                         </connections>
@@ -96,7 +97,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5pc-Wr-mkr">
+                    <navigationItem key="navigationItem" title="Domates Timer" id="5pc-Wr-mkr">
                         <barButtonItem key="rightBarButtonItem" title="⚙" id="3Ri-24-qAk">
                             <connections>
                                 <action selector="settingsTouch:" destination="BYZ-38-t0r" id="oMe-Ql-zrI"/>
@@ -136,8 +137,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pomodoro Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGK-vy-v4i">
-                                                    <rect key="frame" x="16" y="11" width="149" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domates Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGK-vy-v4i">
+                                                    <rect key="frame" x="16" y="11" width="139" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

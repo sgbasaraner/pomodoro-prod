@@ -17,12 +17,13 @@
 		7A7F7D951FC838B700D1C011 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7D941FC838B700D1C011 /* AppDelegate.swift */; };
 		7A7F7D971FC838B700D1C011 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7D961FC838B700D1C011 /* MainViewController.swift */; };
 		7A7F7D9A1FC838B700D1C011 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7F7D981FC838B700D1C011 /* Main.storyboard */; };
-		7A7F7D9C1FC838B700D1C011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7F7D9B1FC838B700D1C011 /* Assets.xcassets */; };
 		7A7F7D9F1FC838B700D1C011 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7F7D9D1FC838B700D1C011 /* LaunchScreen.storyboard */; };
 		7A7F7DA71FC8516A00D1C011 /* TimerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */; };
 		7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7DA81FC8549600D1C011 /* Extensions.swift */; };
 		7A9B48361FCD59CA00CFF9D0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */; };
 		7ADF77271FD2F27C00D4CDE3 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77261FD2F27C00D4CDE3 /* Delegate.swift */; };
+		7AE209C91FF78BBD00584D9D /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE209C81FF78BBD00584D9D /* Globals.swift */; };
+		7AE209CD1FF7AAD500584D9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AE209CC1FF7AAD500584D9D /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,13 +38,14 @@
 		7A7F7D941FC838B700D1C011 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A7F7D961FC838B700D1C011 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7A7F7D991FC838B700D1C011 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7A7F7D9B1FC838B700D1C011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A7F7D9E1FC838B700D1C011 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A7F7DA01FC838B700D1C011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMode.swift; sourceTree = "<group>"; };
 		7A7F7DA81FC8549600D1C011 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7ADF77261FD2F27C00D4CDE3 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		7AE209C81FF78BBD00584D9D /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		7AE209CC1FF7AAD500584D9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,17 +89,18 @@
 		7A7F7D931FC838B700D1C011 /* swiftPomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				7AE209C81FF78BBD00584D9D /* Globals.swift */,
 				7A7F7D941FC838B700D1C011 /* AppDelegate.swift */,
 				7A7F7D961FC838B700D1C011 /* MainViewController.swift */,
 				7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */,
 				7A39CD1E1FCE9D8200149D7C /* AlertSoundViewController.swift */,
 				7ADF77261FD2F27C00D4CDE3 /* Delegate.swift */,
 				7A39CD201FCEACB300149D7C /* Sound.swift */,
+				7AE209CC1FF7AAD500584D9D /* Assets.xcassets */,
 				7A7F7DA81FC8549600D1C011 /* Extensions.swift */,
 				7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */,
 				7A48DD201FC8734E0093FDDA /* TimerModeButton.swift */,
 				7A7F7D981FC838B700D1C011 /* Main.storyboard */,
-				7A7F7D9B1FC838B700D1C011 /* Assets.xcassets */,
 				7A7F7D9D1FC838B700D1C011 /* LaunchScreen.storyboard */,
 				7A7F7DA01FC838B700D1C011 /* Info.plist */,
 				7A39CD151FCE9C2000149D7C /* sounds */,
@@ -172,8 +175,8 @@
 				7A7F7D9F1FC838B700D1C011 /* LaunchScreen.storyboard in Resources */,
 				7A39CD1D1FCE9C9800149D7C /* simple-tone.mp3 in Resources */,
 				7A39CD1B1FCE9C5700149D7C /* electronic-chime.mp3 in Resources */,
-				7A7F7D9C1FC838B700D1C011 /* Assets.xcassets in Resources */,
 				7A7F7D9A1FC838B700D1C011 /* Main.storyboard in Resources */,
+				7AE209CD1FF7AAD500584D9D /* Assets.xcassets in Resources */,
 				7A39CD191FCE9C3C00149D7C /* fire-pager.mp3 in Resources */,
 				7A39CD171FCE9C2F00149D7C /* car-alarm.mp3 in Resources */,
 			);
@@ -194,6 +197,7 @@
 				7A7F7DA71FC8516A00D1C011 /* TimerMode.swift in Sources */,
 				7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */,
 				7A9B48361FCD59CA00CFF9D0 /* SettingsViewController.swift in Sources */,
+				7AE209C91FF78BBD00584D9D /* Globals.swift in Sources */,
 				7A39CD211FCEACB300149D7C /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,9 +338,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JW3AH8GW3D;
 				INFOPLIST_FILE = swiftPomodoro/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Sarp.swiftPomodoro;
+				PRODUCT_BUNDLE_IDENTIFIER = sarp.domates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -350,9 +354,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JW3AH8GW3D;
 				INFOPLIST_FILE = swiftPomodoro/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Sarp.swiftPomodoro;
+				PRODUCT_BUNDLE_IDENTIFIER = sarp.domates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

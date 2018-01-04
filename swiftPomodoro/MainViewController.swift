@@ -24,10 +24,6 @@ class MainViewController: UIViewController {
 	
 	var audioPlayer: AVAudioPlayer? = nil
 	
-    var seconds = 0
-    var timer = Timer()
-    var timerRunning = false
-	
 	var timerModes = [TimerMode]()
 	var currentMode = generateTimerModes()[0] // currentMode is Pomodoro by default
 	
@@ -39,8 +35,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 		setupButtons()
 		timerModes = generateTimerModes()
-        seconds = currentMode.seconds
-		timerLabel.text = seconds.timerString()
+        secondsLeft = currentMode.seconds
+		timerLabel.text = secondsLeft.timerString()
 		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
 		highlight(pomodoroButton)
 		notificationCenter.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in })
@@ -59,7 +55,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func updateTimer() {
-        if seconds < 1 {
+        if secondsLeft < 1 {
 			let def = UserDefaults()
             timer.invalidate()
 			timerRunning = false
@@ -70,15 +66,15 @@ class MainViewController: UIViewController {
 			presentAlert()
 			UIApplication.shared.isIdleTimerDisabled = false
         } else {
-            seconds -= 1
-            timerLabel.text = seconds.timerString()
+            secondsLeft -= 1
+            timerLabel.text = secondsLeft.timerString()
         }
     }
     
     @IBAction func pomodoroTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = timerModes[0]
-        seconds = currentMode.seconds
+        secondsLeft = currentMode.seconds
 		createNotification(for: currentMode)
 		highlight(sender)
     }
@@ -86,7 +82,7 @@ class MainViewController: UIViewController {
     @IBAction func shortBreakTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = timerModes[1]
-        seconds = currentMode.seconds
+        secondsLeft = currentMode.seconds
 		createNotification(for: currentMode)
 		highlight(sender)
     }
@@ -94,13 +90,13 @@ class MainViewController: UIViewController {
     @IBAction func longBreakTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = timerModes[2]
-        seconds = currentMode.seconds
+        secondsLeft = currentMode.seconds
 		createNotification(for: currentMode)
 		highlight(sender)
     }
     
     @IBAction func startTouch(_ sender: UIButton) {
-		if seconds >= 1 {
+		if secondsLeft >= 1 {
 			runTimer()
 			createNotification(for: currentMode)
 		}
@@ -118,15 +114,16 @@ class MainViewController: UIViewController {
 			timer.invalidate()
 			timerRunning = false
 		}
-        seconds = currentMode.seconds
-        timerLabel.text = seconds.timerString()
+        secondsLeft = currentMode.seconds
+        timerLabel.text = secondsLeft.timerString()
     }
 	
 	func presentAlert() {
-		let alert = UIAlertController(title: "Hey!", message: "\(currentMode.name) completed.", preferredStyle: UIAlertControllerStyle.alert)
+		let alert = UIAlertController(title: "Hey!", message: "\(currentMode.name) is now over.", preferredStyle: UIAlertControllerStyle.alert)
 		let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
 		alert.addAction(ok)
 		present(alert, animated: true, completion: nil)
+		timerLabel.text = secondsLeft.timerString()
 	}
 	
 	func vibrate() {
@@ -173,7 +170,7 @@ class MainViewController: UIViewController {
 		// notification content
 		let content = UNMutableNotificationContent()
 		content.title = NSString.localizedUserNotificationString(forKey: "Hey!", arguments: nil)
-		content.body = NSString.localizedUserNotificationString(forKey: "\(mode.name) completed.", arguments: nil)
+		content.body = NSString.localizedUserNotificationString(forKey: "\(mode.name) is now over.", arguments: nil)
 		content.sound = UNNotificationSound.default()
 		content.badge = 1
 		
