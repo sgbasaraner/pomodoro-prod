@@ -7,7 +7,22 @@
 //
 
 import Foundation
+import UserNotifications
 
 var secondsLeft = 0
 var timer = Timer()
 var timerRunning = false
+
+let notificationCenter = UNUserNotificationCenter.current()
+
+func removeAllNotifications() {
+	notificationCenter.removeAllPendingNotificationRequests()
+}
+
+func stopTimer() {
+	removeAllNotifications()
+	if timerRunning {
+		timer.invalidate()
+		timerRunning = false
+	}
+}

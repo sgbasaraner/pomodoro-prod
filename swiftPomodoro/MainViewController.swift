@@ -28,8 +28,6 @@ class MainViewController: UIViewController {
 	var currentMode = generateTimerModes()[0] // currentMode is Pomodoro by default
 	
 	let soundOP = SoundOperator()
-	
-	let notificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,17 +101,11 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func stopTouch(_ sender: UIButton) {
-        if timerRunning {
-            timer.invalidate()
-            timerRunning = false
-        }
+        stopTimer()
     }
     
     @IBAction func resetTouch(_ sender: UIButton) {
-		if timerRunning {
-			timer.invalidate()
-			timerRunning = false
-		}
+		stopTimer()
         secondsLeft = currentMode.seconds
         timerLabel.text = secondsLeft.timerString()
     }
@@ -157,10 +149,6 @@ class MainViewController: UIViewController {
 		stopButton.setTitleColor(UIColor.white, for: .normal)
 		resetButton.backgroundColor = UIColor(red:0.91, green:0.91, blue:0.91, alpha:1.0)
 		resetButton.setTitleColor(UIColor.black, for: .normal)
-	}
-	
-	func removeAllNotifications() {
-		notificationCenter.removeAllPendingNotificationRequests()
 	}
 	
 	func createNotification(for mode: TimerMode) {

@@ -55,10 +55,7 @@ class SettingsViewController: UITableViewController, IsSettings {
 				def.set(600, forKey: "longBreakSeconds")
 				def.set(false, forKey: "vibrationSwitch")
 				def.set(0, forKey: "alertSound")
-				if timerRunning {
-					timer.invalidate()
-					timerRunning = false
-				}
+				stopTimer()
 				self.goToTimer()
 			}
 			let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil)
@@ -133,10 +130,7 @@ class SettingsViewController: UITableViewController, IsSettings {
 		if checkValidity() {
 			saveValues()
 			temporarySound = nil
-			if timerRunning {
-				timer.invalidate()
-				timerRunning = false
-			}
+			stopTimer()
 			goToTimer()
 		} else {
 			presentAlert()
