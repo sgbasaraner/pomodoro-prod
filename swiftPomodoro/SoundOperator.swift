@@ -8,8 +8,6 @@
 
 import Foundation
 
-var temporarySound: Int? = nil
-
 struct SoundOperator {
 	
 	let fm = FileManager.default

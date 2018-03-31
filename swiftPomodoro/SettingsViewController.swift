@@ -11,16 +11,21 @@ import AVFoundation
 
 class SettingsViewController: UITableViewController, IsSettings {
 
-	@IBOutlet weak var pomodoroField: UITextField!
-	@IBOutlet weak var shortBreakField: UITextField!
-	@IBOutlet weak var longBreakField: UITextField!
-	@IBOutlet weak var vibrationSwitch: UISwitch!
-	@IBOutlet weak var alertSoundLabel: UILabel!
-	var textFields = [UITextField]()
+	// IBOutlet variables
 	
-	var audioPlayer: AVAudioPlayer? = nil
+	@IBOutlet weak private var pomodoroField: UITextField!
+	@IBOutlet weak private var shortBreakField: UITextField!
+	@IBOutlet weak private var longBreakField: UITextField!
+	@IBOutlet weak private var vibrationSwitch: UISwitch!
+	@IBOutlet weak private var alertSoundLabel: UILabel!
 	
-	let soundOP = SoundOperator()
+	// Class variables
+	
+	private var textFields = [UITextField]()
+	private var audioPlayer: AVAudioPlayer? = nil
+	private let soundOP = SoundOperator()
+	
+	// Lifecycle methods
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,8 @@ class SettingsViewController: UITableViewController, IsSettings {
 		textFields = [pomodoroField, shortBreakField, longBreakField]
 		setKeyboards()
     }
+	
+	// Table view functions
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -65,14 +72,24 @@ class SettingsViewController: UITableViewController, IsSettings {
 		}
 	}
 	
+	// IsSettings protocol API
+	
 	func setAlertSoundLabel(){
-		if temporarySound != nil {
-			alertSoundLabel.text = soundOP.formatSound(sound: temporarySound!)
+		if temporarySoundIndex != nil {
+			alertSoundLabel.text = soundOP.formatSound(sound: temporarySoundIndex!)
 		}
 	}
 	
-	func provideDefaultValues() {
-		let modes = generateTimerModes()
+	func playSound() {
+		let url = soundOP.getSoundURL(sound: temporarySoundIndex!)
+		audioPlayer = try! AVAudioPlayer(contentsOf: url)
+		audioPlayer!.play()
+	}
+	
+	// Private implementation
+	
+	private func provideDefaultValues() {
+		let modes = TimerMode.generateTimerModes()
 		let def = UserDefaults()
 		pomodoroField.text = "\(modes[0].seconds / 60)"
 		shortBreakField.text = "\(modes[1].seconds / 60)"
@@ -80,13 +97,13 @@ class SettingsViewController: UITableViewController, IsSettings {
 		vibrationSwitch.isOn = def.bool(forKey: "vibrationSwitch")
 	}
 	
-	func setKeyboards() {
+	private func setKeyboards() {
 		for f in textFields {
 			f.keyboardType = .numberPad
 		}
 	}
 	
-	func checkValidity() -> Bool {
+	private func checkValidity() -> Bool {
 		for f in textFields {
 			let t = f.text!
 			if (t.isEmpty || Int(t) == nil) {
@@ -96,25 +113,25 @@ class SettingsViewController: UITableViewController, IsSettings {
 		return true
 	}
 	
-	func presentAlert() {
+	private func presentAlert() {
 		let invalidEntryAlert = UIAlertController(title: "Invalid entry", message: "Please provide valid values.", preferredStyle: UIAlertControllerStyle.alert)
 		let dismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil)
 		invalidEntryAlert.addAction(dismiss)
 		self.present(invalidEntryAlert, animated: true, completion: nil)
 	}
 	
-	func saveValues() {
+	private func saveValues() {
 		let def = UserDefaults()
 		def.set(Int(textFields[0].text!)! * 60, forKey: "pomodoroSeconds")
 		def.set(Int(textFields[1].text!)! * 60, forKey: "shortBreakSeconds")
 		def.set(Int(textFields[2].text!)! * 60, forKey: "longBreakSeconds")
 		def.set(vibrationSwitch.isOn, forKey: "vibrationSwitch")
-		if temporarySound != nil {
-			def.set(temporarySound!, forKey: "alertSound")
+		if temporarySoundIndex != nil {
+			def.set(temporarySoundIndex!, forKey: "alertSound")
 		}
 	}
 	
-	func goToTimer() {
+	private func goToTimer() {
 		let viewController = self.storyboard?.instantiateViewController(withIdentifier: "timer")
 		UIView.transition(from: self.view,
 						  to: (viewController?.view)!,
@@ -126,20 +143,14 @@ class SettingsViewController: UITableViewController, IsSettings {
 		})
 	}
 	
-	@IBAction func saveTouch(_ sender: UIBarButtonItem) {
+	@IBAction private func saveTouch(_ sender: UIBarButtonItem) {
 		if checkValidity() {
 			saveValues()
-			temporarySound = nil
+			temporarySoundIndex = nil
 			stopTimer()
 			goToTimer()
 		} else {
 			presentAlert()
 		}
-	}
-	
-	func playSound() {
-		let url = soundOP.getSoundURL(sound: temporarySound!)
-		audioPlayer = try! AVAudioPlayer(contentsOf: url)
-		audioPlayer!.play()
 	}
 }

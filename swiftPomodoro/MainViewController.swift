@@ -12,35 +12,41 @@ import AVFoundation
 import UserNotifications
 
 class MainViewController: UIViewController {
-    
-    @IBOutlet weak var timerLabel: UILabel!
-	@IBOutlet weak var startButton: UIButton!
-	@IBOutlet weak var stopButton: UIButton!
-	@IBOutlet weak var resetButton: UIButton!
-	@IBOutlet weak var pomodoroButton: TimerModeButton!
-	@IBOutlet weak var shortBreakButton: TimerModeButton!
-	@IBOutlet weak var longBreakButton: TimerModeButton!
-	var timerModeButtons = [TimerModeButton]()
 	
-	var audioPlayer: AVAudioPlayer? = nil
+	// IBOutlet variables
 	
-	var timerModes = [TimerMode]()
-	var currentMode = generateTimerModes()[0] // currentMode is Pomodoro by default
+    @IBOutlet weak private var timerLabel: UILabel!
+	@IBOutlet weak private var startButton: UIButton!
+	@IBOutlet weak private var stopButton: UIButton!
+	@IBOutlet weak private var resetButton: UIButton!
+	@IBOutlet weak private var pomodoroButton: TimerModeButton!
+	@IBOutlet weak private var shortBreakButton: TimerModeButton!
+	@IBOutlet weak private var longBreakButton: TimerModeButton!
 	
-	let soundOP = SoundOperator()
-    
+	// Class variables
+	
+	private var timerModeButtons = [TimerModeButton]()
+	private var audioPlayer: AVAudioPlayer? = nil
+	private var timerModes = [TimerMode]()
+	private var currentMode = TimerMode.generateTimerModes()[0] // currentMode is Pomodoro by default
+	private let soundOP = SoundOperator()
+	
+	// Lifecycle methods
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		setupButtons()
-		timerModes = generateTimerModes()
+		timerModes = TimerMode.generateTimerModes()
         secondsLeft = currentMode.seconds
 		timerLabel.text = secondsLeft.timerString()
 		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
 		highlight(pomodoroButton)
 		notificationCenter.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in })
     }
-    
-    func runTimer() {
+	
+	// Private implementation
+	
+    private func runTimer() {
         if !timerRunning {
 			UIApplication.shared.isIdleTimerDisabled = true
             timer = Timer.scheduledTimer(timeInterval: 1,
@@ -52,7 +58,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    @objc func updateTimer() {
+    @objc private func updateTimer() {
         if secondsLeft < 1 {
 			let def = UserDefaults()
             timer.invalidate()
@@ -69,7 +75,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func pomodoroTouch(_ sender: TimerModeButton) {
+	@IBAction private func pomodoroTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = timerModes[0]
         secondsLeft = currentMode.seconds
@@ -77,7 +83,7 @@ class MainViewController: UIViewController {
 		highlight(sender)
     }
     
-    @IBAction func shortBreakTouch(_ sender: TimerModeButton) {
+    @IBAction private func shortBreakTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = timerModes[1]
         secondsLeft = currentMode.seconds
@@ -85,7 +91,7 @@ class MainViewController: UIViewController {
 		highlight(sender)
     }
     
-    @IBAction func longBreakTouch(_ sender: TimerModeButton) {
+    @IBAction private func longBreakTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = timerModes[2]
         secondsLeft = currentMode.seconds
@@ -93,24 +99,24 @@ class MainViewController: UIViewController {
 		highlight(sender)
     }
     
-    @IBAction func startTouch(_ sender: UIButton) {
+    @IBAction private func startTouch(_ sender: UIButton) {
 		if secondsLeft >= 1 {
 			runTimer()
 			createNotification(for: currentMode)
 		}
     }
     
-    @IBAction func stopTouch(_ sender: UIButton) {
+    @IBAction private func stopTouch(_ sender: UIButton) {
         stopTimer()
     }
     
-    @IBAction func resetTouch(_ sender: UIButton) {
+    @IBAction private func resetTouch(_ sender: UIButton) {
 		stopTimer()
         secondsLeft = currentMode.seconds
         timerLabel.text = secondsLeft.timerString()
     }
 	
-	func presentAlert() {
+	private func presentAlert() {
 		let alert = UIAlertController(title: "Hey!", message: "\(currentMode.name) is now over.", preferredStyle: UIAlertControllerStyle.alert)
 		let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
 		alert.addAction(ok)
@@ -118,7 +124,7 @@ class MainViewController: UIViewController {
 		timerLabel.text = secondsLeft.timerString()
 	}
 	
-	func vibrate() {
+	private func vibrate() {
 		// vibrates twice with one second interval
 		AudioServicesPlaySystemSoundWithCompletion(kSystemSoundID_Vibrate, nil)
 		DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
@@ -126,13 +132,13 @@ class MainViewController: UIViewController {
 		})
 	}
 	
-	func playSound() {
+	private func playSound() {
 		let url = soundOP.getCurrentSoundURL()
 		audioPlayer = try! AVAudioPlayer(contentsOf: url)
 		audioPlayer!.play()
 	}
 	
-	func highlight(_ button: TimerModeButton) {
+	private func highlight(_ button: TimerModeButton) {
 		for b in timerModeButtons {
 			if b == button {
 				b.chosen = true
@@ -142,7 +148,7 @@ class MainViewController: UIViewController {
 		}
 	}
 	
-	func setupButtons() {
+	private func setupButtons() {
 		startButton.backgroundColor = UIColor(red:0.36, green:0.64, blue:0.14, alpha:1.0)
 		startButton.setTitleColor(UIColor.white, for: .normal)
 		stopButton.backgroundColor = UIColor(red:0.78, green:0.06, blue:0.07, alpha:1.0)
@@ -151,9 +157,9 @@ class MainViewController: UIViewController {
 		resetButton.setTitleColor(UIColor.black, for: .normal)
 	}
 	
-	func createNotification(for mode: TimerMode) {
+	private func createNotification(for mode: TimerMode) {
 		// remove all previous notifications
-		removeAllNotifications()
+		NotificationsOperator.removeAllNotifications()
 		
 		// notification content
 		let content = UNMutableNotificationContent()

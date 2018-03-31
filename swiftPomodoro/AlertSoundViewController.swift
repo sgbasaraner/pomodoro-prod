@@ -10,9 +10,13 @@ import UIKit
 
 class AlertSoundViewController: UITableViewController {
 
-	var soundsForDisplay = [String]()
-	var settingsViewController: IsSettings?
-	let soundOP = SoundOperator()
+	// Class variables
+	
+	private var soundsForDisplay = [String]()
+	private var settingsViewController: IsSettings?
+	private let soundOP = SoundOperator()
+	
+	// Lifecycle methods
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +24,8 @@ class AlertSoundViewController: UITableViewController {
 		soundsForDisplay = prepareSoundsForDisplay(sounds: sounds)
 		findSettingsViewController()
     }
+	
+	// Table view implementation
 	
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -36,7 +42,7 @@ class AlertSoundViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		temporarySound = indexPath.row
+		temporarySoundIndex = indexPath.row
 		settingsViewController?.setAlertSoundLabel()
 		settingsViewController?.playSound()
 		_ = navigationController?.popViewController(animated: true)

@@ -12,15 +12,11 @@ import UserNotifications
 var secondsLeft = 0
 var timer = Timer()
 var timerRunning = false
-
+var temporarySoundIndex: Int? = nil
 let notificationCenter = UNUserNotificationCenter.current()
 
-func removeAllNotifications() {
-	notificationCenter.removeAllPendingNotificationRequests()
-}
-
 func stopTimer() {
-	removeAllNotifications()
+	NotificationsOperator.removeAllNotifications()
 	if timerRunning {
 		timer.invalidate()
 		timerRunning = false
