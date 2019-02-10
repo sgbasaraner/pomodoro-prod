@@ -139,13 +139,7 @@ class MainViewController: UIViewController {
 	}
 	
 	private func highlight(_ button: TimerModeButton) {
-		for b in timerModeButtons {
-			if b == button {
-				b.chosen = true
-			} else {
-				b.chosen = false
-			}
-		}
+		timerModeButtons.forEach { $0.chosen = $0 == button }
 	}
 	
 	private func setupButtons() {
