@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
 		timerLabel.text = PomodoroTimer.shared.secondsLeft.timerString()
 		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
 		highlight(pomodoroButton)
-		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in })
+		NotificationsOperator.requestAuth()
     }
 	
 	// Private implementation

@@ -37,4 +37,8 @@ struct NotificationsOperator {
 			}
 		}
 	}
+	
+	static func requestAuth() {
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { _, _ in })
+	}
 }
