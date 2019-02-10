@@ -12,7 +12,7 @@ struct TimerMode {
     let name: String
     let seconds: Int
 	
-	static func generateTimerModes() -> [TimerMode] {
+	static var allModes: [TimerMode] {
 		// generates timer modes, from the UserDefaults if they're present
 		// if not, give default pomodoro values
 		let def = UserDefaults()

@@ -89,7 +89,7 @@ class SettingsViewController: UITableViewController, IsSettings {
 	// Private implementation
 	
 	private func provideDefaultValues() {
-		let modes = TimerMode.generateTimerModes()
+		let modes = TimerMode.allModes
 		let def = UserDefaults()
 		pomodoroField.text = "\(modes[0].seconds / 60)"
 		shortBreakField.text = "\(modes[1].seconds / 60)"

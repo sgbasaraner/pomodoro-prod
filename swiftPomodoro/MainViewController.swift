@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
 	private var timerModeButtons = [TimerModeButton]()
 	private var audioPlayer: AVAudioPlayer? = nil
 	private var timerModes = [TimerMode]()
-	private var currentMode = TimerMode.generateTimerModes()[0] // currentMode is Pomodoro by default
+	private var currentMode = TimerMode.allModes[0] // currentMode is Pomodoro by default
 	private let soundOP = SoundOperator()
 	
 	// Lifecycle methods
@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		setupButtons()
-		timerModes = TimerMode.generateTimerModes()
+		timerModes = TimerMode.allModes
         PomodoroTimer.shared.secondsLeft = currentMode.seconds
 		timerLabel.text = PomodoroTimer.shared.secondsLeft.timerString()
 		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
