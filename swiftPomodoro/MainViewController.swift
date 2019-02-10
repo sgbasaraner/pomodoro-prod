@@ -79,7 +79,7 @@ class MainViewController: UIViewController {
         runTimer()
         currentMode = timerModes[0]
         PomodoroTimer.shared.secondsLeft = currentMode.seconds
-		createNotification(for: currentMode)
+		NotificationsOperator.createNotification(for: currentMode)
 		highlight(sender)
     }
     
@@ -87,7 +87,7 @@ class MainViewController: UIViewController {
         runTimer()
         currentMode = timerModes[1]
         PomodoroTimer.shared.secondsLeft = currentMode.seconds
-		createNotification(for: currentMode)
+		NotificationsOperator.createNotification(for: currentMode)
 		highlight(sender)
     }
     
@@ -95,14 +95,14 @@ class MainViewController: UIViewController {
         runTimer()
         currentMode = timerModes[2]
         PomodoroTimer.shared.secondsLeft = currentMode.seconds
-		createNotification(for: currentMode)
+		NotificationsOperator.createNotification(for: currentMode)
 		highlight(sender)
     }
     
     @IBAction private func startTouch(_ sender: UIButton) {
 		if PomodoroTimer.shared.secondsLeft >= 1 {
 			runTimer()
-			createNotification(for: currentMode)
+			NotificationsOperator.createNotification(for: currentMode)
 		}
     }
     
@@ -155,30 +155,6 @@ class MainViewController: UIViewController {
 		stopButton.setTitleColor(UIColor.white, for: .normal)
 		resetButton.backgroundColor = UIColor(red:0.91, green:0.91, blue:0.91, alpha:1.0)
 		resetButton.setTitleColor(UIColor.black, for: .normal)
-	}
-	
-	private func createNotification(for mode: TimerMode) {
-		// remove all previous notifications
-		NotificationsOperator.removeAllNotifications()
-		
-		// notification content
-		let content = UNMutableNotificationContent()
-		content.title = NSString.localizedUserNotificationString(forKey: "Hey!", arguments: nil)
-		content.body = NSString.localizedUserNotificationString(forKey: "\(mode.name) is now over.", arguments: nil)
-		content.sound = UNNotificationSound.default()
-		content.badge = 1
-		
-		// trigger time
-		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(mode.seconds), repeats: false)
-		
-		// create the request
-		let request = UNNotificationRequest(identifier: "TimerNotification", content: content, trigger: trigger)
-		
-		UNUserNotificationCenter.current().add(request) { (error : Error?) in
-			if let theError = error {
-				print(theError.localizedDescription)
-			}
-		}
 	}
 }
 
