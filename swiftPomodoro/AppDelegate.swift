@@ -37,10 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let def = UserDefaults()
 		let timeEnterBackground: Date = def.object(forKey: "timeEnterBackground") as! Date
 		let timeSpentInBackground = Date().timeIntervalSince1970 - timeEnterBackground.timeIntervalSince1970
-		if secondsLeft - Int(timeSpentInBackground) > 0 {
-			secondsLeft -= Int(timeSpentInBackground)
+		if PomodoroTimer.shared.secondsLeft - Int(timeSpentInBackground) > 0 {
+			PomodoroTimer.shared.secondsLeft -= Int(timeSpentInBackground)
 		} else {
-			secondsLeft = 0
+			PomodoroTimer.shared.secondsLeft = 0
 		}
 		
     }

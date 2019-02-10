@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A29B4D62210660800E0EEA1 /* PomodoroTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A29B4D52210660800E0EEA1 /* PomodoroTimer.swift */; };
 		7A39CD171FCE9C2F00149D7C /* car-alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A39CD161FCE9C2F00149D7C /* car-alarm.mp3 */; };
 		7A39CD191FCE9C3C00149D7C /* fire-pager.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A39CD181FCE9C3C00149D7C /* fire-pager.mp3 */; };
 		7A39CD1B1FCE9C5700149D7C /* electronic-chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A39CD1A1FCE9C5700149D7C /* electronic-chime.mp3 */; };
@@ -24,10 +25,10 @@
 		7A9B48361FCD59CA00CFF9D0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */; };
 		7AB192CA1FFE2B2F00100762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB192C91FFE2B2F00100762 /* Assets.xcassets */; };
 		7ADF77271FD2F27C00D4CDE3 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF77261FD2F27C00D4CDE3 /* Delegate.swift */; };
-		7AE209C91FF78BBD00584D9D /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE209C81FF78BBD00584D9D /* Globals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A29B4D52210660800E0EEA1 /* PomodoroTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimer.swift; sourceTree = "<group>"; };
 		7A39CD161FCE9C2F00149D7C /* car-alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "car-alarm.mp3"; sourceTree = "<group>"; };
 		7A39CD181FCE9C3C00149D7C /* fire-pager.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fire-pager.mp3"; sourceTree = "<group>"; };
 		7A39CD1A1FCE9C5700149D7C /* electronic-chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "electronic-chime.mp3"; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7AB192C91FFE2B2F00100762 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ADF77261FD2F27C00D4CDE3 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
-		7AE209C81FF78BBD00584D9D /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 		7A7F7D931FC838B700D1C011 /* swiftPomodoro */ = {
 			isa = PBXGroup;
 			children = (
-				7AE209C81FF78BBD00584D9D /* Globals.swift */,
+				7A29B4D52210660800E0EEA1 /* PomodoroTimer.swift */,
 				7A7F7D941FC838B700D1C011 /* AppDelegate.swift */,
 				7A7F7D961FC838B700D1C011 /* MainViewController.swift */,
 				7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */,
@@ -198,10 +198,10 @@
 				7ADF77271FD2F27C00D4CDE3 /* Delegate.swift in Sources */,
 				7A7F7D951FC838B700D1C011 /* AppDelegate.swift in Sources */,
 				7A7F7DA71FC8516A00D1C011 /* TimerMode.swift in Sources */,
+				7A29B4D62210660800E0EEA1 /* PomodoroTimer.swift in Sources */,
 				7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */,
 				7A5467FA206F843D009C2D5A /* NotificationsOperator.swift in Sources */,
 				7A9B48361FCD59CA00CFF9D0 /* SettingsViewController.swift in Sources */,
-				7AE209C91FF78BBD00584D9D /* Globals.swift in Sources */,
 				7A39CD211FCEACB300149D7C /* SoundOperator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

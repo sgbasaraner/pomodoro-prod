@@ -37,32 +37,32 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 		setupButtons()
 		timerModes = TimerMode.generateTimerModes()
-        secondsLeft = currentMode.seconds
-		timerLabel.text = secondsLeft.timerString()
+        PomodoroTimer.shared.secondsLeft = currentMode.seconds
+		timerLabel.text = PomodoroTimer.shared.secondsLeft.timerString()
 		timerModeButtons = [pomodoroButton, shortBreakButton, longBreakButton]
 		highlight(pomodoroButton)
-		notificationCenter.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in })
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in })
     }
 	
 	// Private implementation
 	
     private func runTimer() {
-        if !timerRunning {
+        if !PomodoroTimer.shared.timerRunning {
 			UIApplication.shared.isIdleTimerDisabled = true
-            timer = Timer.scheduledTimer(timeInterval: 1,
+            PomodoroTimer.shared.timer = Timer.scheduledTimer(timeInterval: 1,
                                          target: self,
                                          selector: (#selector(self.updateTimer)),
                                          userInfo: nil,
                                          repeats: true)
-            timerRunning = true
+            PomodoroTimer.shared.timerRunning = true
         }
     }
     
     @objc private func updateTimer() {
-        if secondsLeft < 1 {
+        if PomodoroTimer.shared.secondsLeft < 1 {
 			let def = UserDefaults()
-            timer.invalidate()
-			timerRunning = false
+            PomodoroTimer.shared.timer.invalidate()
+			PomodoroTimer.shared.timerRunning = false
 			playSound()
 			if def.bool(forKey: "vibrationSwitch") {
 				vibrate()
@@ -70,15 +70,15 @@ class MainViewController: UIViewController {
 			presentAlert()
 			UIApplication.shared.isIdleTimerDisabled = false
         } else {
-            secondsLeft -= 1
-            timerLabel.text = secondsLeft.timerString()
+            PomodoroTimer.shared.secondsLeft -= 1
+            timerLabel.text = PomodoroTimer.shared.secondsLeft.timerString()
         }
     }
     
 	@IBAction private func pomodoroTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = timerModes[0]
-        secondsLeft = currentMode.seconds
+        PomodoroTimer.shared.secondsLeft = currentMode.seconds
 		createNotification(for: currentMode)
 		highlight(sender)
     }
@@ -86,7 +86,7 @@ class MainViewController: UIViewController {
     @IBAction private func shortBreakTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = timerModes[1]
-        secondsLeft = currentMode.seconds
+        PomodoroTimer.shared.secondsLeft = currentMode.seconds
 		createNotification(for: currentMode)
 		highlight(sender)
     }
@@ -94,26 +94,26 @@ class MainViewController: UIViewController {
     @IBAction private func longBreakTouch(_ sender: TimerModeButton) {
         runTimer()
         currentMode = timerModes[2]
-        secondsLeft = currentMode.seconds
+        PomodoroTimer.shared.secondsLeft = currentMode.seconds
 		createNotification(for: currentMode)
 		highlight(sender)
     }
     
     @IBAction private func startTouch(_ sender: UIButton) {
-		if secondsLeft >= 1 {
+		if PomodoroTimer.shared.secondsLeft >= 1 {
 			runTimer()
 			createNotification(for: currentMode)
 		}
     }
     
     @IBAction private func stopTouch(_ sender: UIButton) {
-        stopTimer()
+        PomodoroTimer.shared.stopTimer()
     }
     
     @IBAction private func resetTouch(_ sender: UIButton) {
-		stopTimer()
-        secondsLeft = currentMode.seconds
-        timerLabel.text = secondsLeft.timerString()
+		PomodoroTimer.shared.stopTimer()
+        PomodoroTimer.shared.secondsLeft = currentMode.seconds
+        timerLabel.text = PomodoroTimer.shared.secondsLeft.timerString()
     }
 	
 	private func presentAlert() {
@@ -121,7 +121,7 @@ class MainViewController: UIViewController {
 		let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
 		alert.addAction(ok)
 		present(alert, animated: true, completion: nil)
-		timerLabel.text = secondsLeft.timerString()
+		timerLabel.text = PomodoroTimer.shared.secondsLeft.timerString()
 	}
 	
 	private func vibrate() {
@@ -174,7 +174,7 @@ class MainViewController: UIViewController {
 		// create the request
 		let request = UNNotificationRequest(identifier: "TimerNotification", content: content, trigger: trigger)
 		
-		notificationCenter.add(request) { (error : Error?) in
+		UNUserNotificationCenter.current().add(request) { (error : Error?) in
 			if let theError = error {
 				print(theError.localizedDescription)
 			}

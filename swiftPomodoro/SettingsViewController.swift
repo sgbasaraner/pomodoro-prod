@@ -62,7 +62,7 @@ class SettingsViewController: UITableViewController, IsSettings {
 				def.set(600, forKey: "longBreakSeconds")
 				def.set(false, forKey: "vibrationSwitch")
 				def.set(0, forKey: "alertSound")
-				stopTimer()
+				PomodoroTimer.shared.stopTimer()
 				self.goToTimer()
 			}
 			let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil)
@@ -75,13 +75,13 @@ class SettingsViewController: UITableViewController, IsSettings {
 	// IsSettings protocol API
 	
 	func setAlertSoundLabel(){
-		if temporarySoundIndex != nil {
-			alertSoundLabel.text = soundOP.formatSound(sound: temporarySoundIndex!)
+		if PomodoroTimer.shared.temporarySoundIndex != nil {
+			alertSoundLabel.text = soundOP.formatSound(sound: PomodoroTimer.shared.temporarySoundIndex!)
 		}
 	}
 	
 	func playSound() {
-		let url = soundOP.getSoundURL(sound: temporarySoundIndex!)
+		let url = soundOP.getSoundURL(sound: PomodoroTimer.shared.temporarySoundIndex!)
 		audioPlayer = try! AVAudioPlayer(contentsOf: url)
 		audioPlayer!.play()
 	}
@@ -126,8 +126,8 @@ class SettingsViewController: UITableViewController, IsSettings {
 		def.set(Int(textFields[1].text!)! * 60, forKey: "shortBreakSeconds")
 		def.set(Int(textFields[2].text!)! * 60, forKey: "longBreakSeconds")
 		def.set(vibrationSwitch.isOn, forKey: "vibrationSwitch")
-		if temporarySoundIndex != nil {
-			def.set(temporarySoundIndex!, forKey: "alertSound")
+		if PomodoroTimer.shared.temporarySoundIndex != nil {
+			def.set(PomodoroTimer.shared.temporarySoundIndex!, forKey: "alertSound")
 		}
 	}
 	
@@ -146,8 +146,8 @@ class SettingsViewController: UITableViewController, IsSettings {
 	@IBAction private func saveTouch(_ sender: UIBarButtonItem) {
 		if checkValidity() {
 			saveValues()
-			temporarySoundIndex = nil
-			stopTimer()
+			PomodoroTimer.shared.temporarySoundIndex = nil
+			PomodoroTimer.shared.stopTimer()
 			goToTimer()
 		} else {
 			presentAlert()

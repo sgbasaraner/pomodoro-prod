@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UserNotifications
 
 struct NotificationsOperator {
 	static func removeAllNotifications() {
-		notificationCenter.removeAllPendingNotificationRequests()
+		UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 	}
 }

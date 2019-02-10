@@ -42,7 +42,7 @@ class AlertSoundViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		temporarySoundIndex = indexPath.row
+		PomodoroTimer.shared.temporarySoundIndex = indexPath.row
 		settingsViewController?.setAlertSoundLabel()
 		settingsViewController?.playSound()
 		_ = navigationController?.popViewController(animated: true)
