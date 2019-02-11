@@ -18,12 +18,12 @@ struct TimerMode {
 		let def = UserDefaults()
 		var defs = [1500, 300, 600]
 		let prefs = [def.integer(forKey: Keys.pomodoroSec), def.integer(forKey: Keys.sbSec), def.integer(forKey: Keys.lbSec)]
-		for i in 0..<3 {
-			// UserDefaults integers return 0 if there are no values, hence this check:
-			if prefs[i] != 0 {
-				defs[i] = prefs[i]
-			}
-		}
+        for (i, pref) in prefs.enumerated() {
+            // UserDefaults integers return 0 if there are no values, hence this check:
+            if pref != 0 {
+                defs[i] = pref
+            }
+        }
 		let result = [TimerMode(name: "Domates", seconds: defs[0]), TimerMode(name: "Short break", seconds: defs[1]), TimerMode(name: "Long break", seconds: defs[2])]
 		return result
 	}
