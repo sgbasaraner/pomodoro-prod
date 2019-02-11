@@ -13,8 +13,9 @@ class AlertSoundViewController: UITableViewController {
 	// Class variables
 	
 	private var soundsForDisplay = [String]()
-	private weak var settingsViewController: AlertSoundViewControllerDelegate?
 	private let soundOP = SoundOperator()
+    
+    weak var delegate: AlertSoundViewControllerDelegate?
 	
 	// Lifecycle methods
 	
@@ -42,8 +43,8 @@ class AlertSoundViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		PomodoroTimer.shared.temporarySoundIndex = indexPath.row
-		settingsViewController?.setAlertSoundLabel()
-		settingsViewController?.playSound()
+		delegate?.setAlertSoundLabel()
+		delegate?.playSound()
 		navigationController?.popViewController(animated: true)
 	}
 	

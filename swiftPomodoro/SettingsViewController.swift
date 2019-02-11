@@ -52,6 +52,10 @@ class SettingsViewController: UITableViewController {
     }
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 && indexPath.row == 1 {
+            performSegue(withIdentifier: "toAlertSound", sender: nil)
+        }
+        
 		if indexPath.section == 2 && indexPath.row == 0 {
 			let alert = UIAlertController(title: "Reset to defaults?", message: "This will replace all of your settings with the default ones.", preferredStyle: UIAlertControllerStyle.alert)
 			let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { [weak self] (action:UIAlertAction!) in
@@ -125,10 +129,15 @@ class SettingsViewController: UITableViewController {
 			presentAlert()
 		}
 	}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let alertSoundVC = segue.destination as? AlertSoundViewController else { return }
+        alertSoundVC.delegate = self
+    }
 }
 
 extension SettingsViewController: AlertSoundViewControllerDelegate {
-    func setAlertSoundLabel(){
+    func setAlertSoundLabel() {
         guard let idx = PomodoroTimer.shared.temporarySoundIndex else { return }
         alertSoundLabel.text = soundOP.formatSound(sound: idx)
     }
