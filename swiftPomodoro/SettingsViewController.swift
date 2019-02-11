@@ -98,15 +98,13 @@ class SettingsViewController: UITableViewController, IsSettings {
 	}
 	
 	private func setKeyboards() {
-		for f in textFields {
-			f.keyboardType = .numberPad
-		}
+        textFields.forEach { $0.keyboardType = .numberPad }
 	}
 	
 	private func checkValidity() -> Bool {
 		for f in textFields {
-			let t = f.text!
-			if (t.isEmpty || Int(t) == nil) {
+            guard let text = f.text else { return false }
+			if (text.isEmpty || Int(text) == nil) {
 				return false
 			}
 		}
