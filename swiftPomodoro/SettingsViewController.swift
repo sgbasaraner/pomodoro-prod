@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class SettingsViewController: UITableViewController, IsSettings {
+class SettingsViewController: UITableViewController {
 
 	// IBOutlet variables
 	
@@ -72,20 +72,6 @@ class SettingsViewController: UITableViewController, IsSettings {
 		}
 	}
 	
-	// IsSettings protocol API
-	
-	func setAlertSoundLabel(){
-		if PomodoroTimer.shared.temporarySoundIndex != nil {
-			alertSoundLabel.text = soundOP.formatSound(sound: PomodoroTimer.shared.temporarySoundIndex!)
-		}
-	}
-	
-	func playSound() {
-		let url = soundOP.getSoundURL(sound: PomodoroTimer.shared.temporarySoundIndex!)
-		audioPlayer = try! AVAudioPlayer(contentsOf: url)
-		audioPlayer!.play()
-	}
-	
 	// Private implementation
 	
 	private func provideDefaultValues() {
@@ -139,4 +125,18 @@ class SettingsViewController: UITableViewController, IsSettings {
 			presentAlert()
 		}
 	}
+}
+
+extension SettingsViewController: AlertSoundViewControllerDelegate {
+    func setAlertSoundLabel(){
+        guard let idx = PomodoroTimer.shared.temporarySoundIndex else { return }
+        alertSoundLabel.text = soundOP.formatSound(sound: idx)
+    }
+    
+    func playSound() {
+        guard let idx = PomodoroTimer.shared.temporarySoundIndex else { return }
+        let url = soundOP.getSoundURL(sound: idx)
+        audioPlayer = try? AVAudioPlayer(contentsOf: url)
+        audioPlayer?.play()
+    }
 }

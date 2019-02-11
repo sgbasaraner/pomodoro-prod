@@ -13,7 +13,7 @@ class AlertSoundViewController: UITableViewController {
 	// Class variables
 	
 	private var soundsForDisplay = [String]()
-	private var settingsViewController: IsSettings?
+	private weak var settingsViewController: AlertSoundViewControllerDelegate?
 	private let soundOP = SoundOperator()
 	
 	// Lifecycle methods
@@ -22,7 +22,6 @@ class AlertSoundViewController: UITableViewController {
         super.viewDidLoad()
 		let sounds = soundOP.getSounds()
 		soundsForDisplay = prepareSoundsForDisplay(sounds: sounds)
-		findSettingsViewController()
     }
 	
 	// Table view implementation
@@ -59,14 +58,9 @@ class AlertSoundViewController: UITableViewController {
 		}
 		return result
 	}
-	
-	func findSettingsViewController() {
-		// finds SettingsViewController to change its alertSoundLabel
-		// with the name of the sound selected in this ViewController
-		for vc in (self.navigationController?.viewControllers)! {
-			if let controller = vc as? IsSettings {
-				settingsViewController = controller
-			}
-		}
-	}
+}
+
+protocol AlertSoundViewControllerDelegate: class {
+    func setAlertSoundLabel()
+    func playSound()
 }
