@@ -24,6 +24,7 @@
 		7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F7DA81FC8549600D1C011 /* Extensions.swift */; };
 		7A9B48361FCD59CA00CFF9D0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */; };
 		7AB192CA1FFE2B2F00100762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB192C91FFE2B2F00100762 /* Assets.xcassets */; };
+		84C882612211AD8900A6E872 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C882602211AD8900A6E872 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		7A7F7DA81FC8549600D1C011 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7A9B48351FCD59CA00CFF9D0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7AB192C91FFE2B2F00100762 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84C882602211AD8900A6E872 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				7A39CD1E1FCE9D8200149D7C /* AlertSoundViewController.swift */,
 				7A39CD201FCEACB300149D7C /* SoundOperator.swift */,
 				7A7F7DA81FC8549600D1C011 /* Extensions.swift */,
+				84C882602211AD8900A6E872 /* Keys.swift */,
 				7A5467F9206F843D009C2D5A /* NotificationsOperator.swift */,
 				7A7F7DA61FC8516A00D1C011 /* TimerMode.swift */,
 				7AB192C91FFE2B2F00100762 /* Assets.xcassets */,
@@ -193,6 +196,7 @@
 				7A7F7D971FC838B700D1C011 /* MainViewController.swift in Sources */,
 				7A48DD211FC8734E0093FDDA /* TimerModeButton.swift in Sources */,
 				7A7F7D951FC838B700D1C011 /* AppDelegate.swift in Sources */,
+				84C882612211AD8900A6E872 /* Keys.swift in Sources */,
 				7A7F7DA71FC8516A00D1C011 /* TimerMode.swift in Sources */,
 				7A29B4D62210660800E0EEA1 /* PomodoroTimer.swift in Sources */,
 				7A7F7DA91FC8549600D1C011 /* Extensions.swift in Sources */,

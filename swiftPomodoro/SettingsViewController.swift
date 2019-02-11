@@ -71,7 +71,7 @@ class SettingsViewController: UITableViewController {
 		pomodoroField.text = "\(modes[0].seconds / 60)"
 		shortBreakField.text = "\(modes[1].seconds / 60)"
 		longBreakField.text = "\(modes[2].seconds / 60)"
-		vibrationSwitch.isOn = def.bool(forKey: "vibrationSwitch")
+		vibrationSwitch.isOn = def.bool(forKey: Keys.vibrationSwitch)
 	}
 	
 	private func setKeyboards() {
@@ -93,11 +93,11 @@ class SettingsViewController: UITableViewController {
         let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { [weak self] (action:UIAlertAction!) in
             // reset to defaults and go to timer
             let def = UserDefaults()
-            def.set(1500, forKey: "pomodoroSeconds")
-            def.set(300, forKey: "shortBreakSeconds")
-            def.set(600, forKey: "longBreakSeconds")
-            def.set(false, forKey: "vibrationSwitch")
-            def.set(0, forKey: "alertSound")
+            def.set(1500, forKey: Keys.pomodoroSec)
+            def.set(300, forKey: Keys.sbSec)
+            def.set(600, forKey: Keys.lbSec)
+            def.set(false, forKey: Keys.vibrationSwitch)
+            def.set(0, forKey: Keys.alertSoundIndex)
             PomodoroTimer.shared.stopTimer()
             self?.navigationController?.popViewController(animated: true)
         }
@@ -116,12 +116,12 @@ class SettingsViewController: UITableViewController {
 	
 	private func saveValues() {
 		let def = UserDefaults()
-		def.set(Int(textFields[0].text!)! * 60, forKey: "pomodoroSeconds")
-		def.set(Int(textFields[1].text!)! * 60, forKey: "shortBreakSeconds")
-		def.set(Int(textFields[2].text!)! * 60, forKey: "longBreakSeconds")
-		def.set(vibrationSwitch.isOn, forKey: "vibrationSwitch")
+		def.set(Int(textFields[0].text!)! * 60, forKey: Keys.pomodoroSec)
+		def.set(Int(textFields[1].text!)! * 60, forKey: Keys.sbSec)
+		def.set(Int(textFields[2].text!)! * 60, forKey: Keys.lbSec)
+		def.set(vibrationSwitch.isOn, forKey: Keys.vibrationSwitch)
 		if let idx = PomodoroTimer.shared.temporarySoundIndex {
-			def.set(idx, forKey: "alertSound")
+			def.set(idx, forKey: Keys.alertSoundIndex)
 		}
 	}
 	

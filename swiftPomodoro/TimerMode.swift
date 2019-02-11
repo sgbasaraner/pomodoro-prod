@@ -17,7 +17,7 @@ struct TimerMode {
 		// if not, give default pomodoro values
 		let def = UserDefaults()
 		var defs = [1500, 300, 600]
-		let prefs = [def.integer(forKey: "pomodoroSeconds"), def.integer(forKey: "shortBreakSeconds"), def.integer(forKey: "longBreakSeconds")]
+		let prefs = [def.integer(forKey: Keys.pomodoroSec), def.integer(forKey: Keys.sbSec), def.integer(forKey: Keys.lbSec)]
 		for i in 0..<3 {
 			// UserDefaults integers return 0 if there are no values, hence this check:
 			if prefs[i] != 0 {

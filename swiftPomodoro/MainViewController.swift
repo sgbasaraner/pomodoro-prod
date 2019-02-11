@@ -64,7 +64,7 @@ class MainViewController: UIViewController {
             PomodoroTimer.shared.timer.invalidate()
 			PomodoroTimer.shared.timerRunning = false
 			playSound()
-			if def.bool(forKey: "vibrationSwitch") {
+			if def.bool(forKey: Keys.vibrationSwitch) {
 				vibrate()
 			}
 			presentAlert()

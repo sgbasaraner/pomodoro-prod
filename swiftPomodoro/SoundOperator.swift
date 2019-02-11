@@ -31,7 +31,7 @@ struct SoundOperator {
 	
 	func getCurrentSoundFormatted() -> String {
 		let sounds = getSounds()
-		var currentSound = sounds[def.integer(forKey: "alertSound")]
+		var currentSound = sounds[def.integer(forKey: Keys.alertSoundIndex)]
 		currentSound.removeLast(4)
 		currentSound = currentSound.replacingOccurrences(of: "-", with: " ", options: .literal, range: nil)
 		currentSound = currentSound.titlecased()
@@ -40,7 +40,7 @@ struct SoundOperator {
 	
 	func getCurrentSoundURL() -> URL {
 		let sounds = getSounds()
-		var currentSound = sounds[def.integer(forKey: "alertSound")]
+		var currentSound = sounds[def.integer(forKey: Keys.alertSoundIndex)]
 		currentSound.removeLast(4)
 		let path = Bundle.main.path(forResource: currentSound, ofType: "mp3")!
 		return URL(fileURLWithPath: path)

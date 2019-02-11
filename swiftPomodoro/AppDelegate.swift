@@ -28,14 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 		let def = UserDefaults()
-		def.set(Date(), forKey: "timeEnterBackground")
+		def.set(Date(), forKey: Keys.enterBackground)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 		UIApplication.shared.applicationIconBadgeNumber = 0
 		let def = UserDefaults()
-		let timeEnterBackground: Date = def.object(forKey: "timeEnterBackground") as! Date
+		let timeEnterBackground: Date = def.object(forKey: Keys.enterBackground) as! Date
 		let timeSpentInBackground = Date().timeIntervalSince1970 - timeEnterBackground.timeIntervalSince1970
 		if PomodoroTimer.shared.secondsLeft - Int(timeSpentInBackground) > 0 {
 			PomodoroTimer.shared.secondsLeft -= Int(timeSpentInBackground)
