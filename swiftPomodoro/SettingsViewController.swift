@@ -54,7 +54,7 @@ class SettingsViewController: UITableViewController, IsSettings {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if indexPath.section == 2 && indexPath.row == 0 {
 			let alert = UIAlertController(title: "Reset to defaults?", message: "This will replace all of your settings with the default ones.", preferredStyle: UIAlertControllerStyle.alert)
-			let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction!) in
+			let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { [weak self] (action:UIAlertAction!) in
 				// reset to defaults and go to timer
 				let def = UserDefaults()
 				def.set(1500, forKey: "pomodoroSeconds")
@@ -63,7 +63,7 @@ class SettingsViewController: UITableViewController, IsSettings {
 				def.set(false, forKey: "vibrationSwitch")
 				def.set(0, forKey: "alertSound")
 				PomodoroTimer.shared.stopTimer()
-				self.goToTimer()
+				self?.navigationController?.popViewController(animated: true)
 			}
 			let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil)
 			alert.addAction(ok)
@@ -131,24 +131,12 @@ class SettingsViewController: UITableViewController, IsSettings {
 		}
 	}
 	
-	private func goToTimer() {
-		let viewController = self.storyboard?.instantiateViewController(withIdentifier: "timer")
-		UIView.transition(from: self.view,
-						  to: (viewController?.view)!,
-						  duration: 0.4,
-						  options: UIViewAnimationOptions.transitionCrossDissolve,
-						  completion:
-			{ (finished: Bool) -> () in
-				self.navigationController?.viewControllers = [viewController!]
-		})
-	}
-	
 	@IBAction private func saveTouch(_ sender: UIBarButtonItem) {
 		if checkValidity() {
 			saveValues()
 			PomodoroTimer.shared.temporarySoundIndex = nil
 			PomodoroTimer.shared.stopTimer()
-			goToTimer()
+			navigationController?.popViewController(animated: true)
 		} else {
 			presentAlert()
 		}
