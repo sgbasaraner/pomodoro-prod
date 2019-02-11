@@ -126,8 +126,8 @@ class SettingsViewController: UITableViewController, IsSettings {
 		def.set(Int(textFields[1].text!)! * 60, forKey: "shortBreakSeconds")
 		def.set(Int(textFields[2].text!)! * 60, forKey: "longBreakSeconds")
 		def.set(vibrationSwitch.isOn, forKey: "vibrationSwitch")
-		if PomodoroTimer.shared.temporarySoundIndex != nil {
-			def.set(PomodoroTimer.shared.temporarySoundIndex!, forKey: "alertSound")
+		if let idx = PomodoroTimer.shared.temporarySoundIndex {
+			def.set(idx, forKey: "alertSound")
 		}
 	}
 	
