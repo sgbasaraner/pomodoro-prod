@@ -38,27 +38,29 @@ class SettingsViewController: UITableViewController {
 	// Table view functions
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return Constants.sectionCount
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if section == 0 {
-			return 3
-		} else if section == 1 {
-			return 2
-		} else {
-			return 1
-		}
+        switch section {
+        case Constants.defaultsSection:
+            return Constants.defaultsItemCount
+        case Constants.alertSection
+            return Constants.alertItemCount
+        default:
+            return Constants.durationItemCount
+        }
     }
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 && indexPath.row == 1 {
+        switch indexPath {
+        case Constants.alertSoundIndexPath:
             performSegue(withIdentifier: "toAlertSound", sender: nil)
+        case Constants.defaultsIndexPath:
+            presentDefaultAlert()
+        default:
+            break
         }
-        
-		if indexPath.section == 2 && indexPath.row == 0 {
-			presentDefaultAlert()
-		}
 	}
 	
 	// Private implementation
@@ -152,4 +154,19 @@ extension SettingsViewController: AlertSoundViewControllerDelegate {
         audioPlayer = try? AVAudioPlayer(contentsOf: url)
         audioPlayer?.play()
     }
+}
+
+fileprivate struct Constants {
+    static let alertSoundIndexPath = IndexPath(row: 1, section: 1)
+    static let defaultsIndexPath = IndexPath(row: 0, section: 2)
+    
+    static let durationSection = 0
+    static let alertSection = 1
+    static let defaultsSection = 2
+    
+    static let durationItemCount = 3
+    static let alertItemCount = 2
+    static let defaultsItemCount = 1
+    
+    static let sectionCount = 3
 }
