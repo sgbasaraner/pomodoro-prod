@@ -44,18 +44,17 @@ class AlertSoundViewController: UITableViewController {
 		PomodoroTimer.shared.temporarySoundIndex = indexPath.row
 		settingsViewController?.setAlertSoundLabel()
 		settingsViewController?.playSound()
-		_ = navigationController?.popViewController(animated: true)
+		navigationController?.popViewController(animated: true)
 	}
 	
 	func prepareSoundsForDisplay(sounds: [String]) -> [String]{
-		var result = [String]()
-		for s in sounds {
-			var a = s
-			a.removeLast(4)
-			a = a.replacingOccurrences(of: "-", with: " ", options: .literal, range: nil)
-			a = a.titlecased()
-			result.append(a)
-		}
+        let result = sounds.map { (s) -> String in
+            var a = s
+            a.removeLast(4)
+            a = a.replacingOccurrences(of: "-", with: " ", options: .literal, range: nil)
+            a = a.titlecased()
+            return a
+        }
 		return result
 	}
 }
