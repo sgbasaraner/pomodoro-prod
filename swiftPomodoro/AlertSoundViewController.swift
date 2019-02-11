@@ -60,18 +60,6 @@ class AlertSoundViewController: UITableViewController {
 		return result
 	}
 	
-	func goToTimer() {
-		let viewController = self.storyboard?.instantiateViewController(withIdentifier: "timer")
-		UIView.transition(from: self.view,
-						  to: (viewController?.view)!,
-						  duration: 0.4,
-						  options: UIViewAnimationOptions.transitionCrossDissolve,
-						  completion:
-			{ (finished: Bool) -> () in
-				self.navigationController?.viewControllers = [viewController!]
-		})
-	}
-	
 	func findSettingsViewController() {
 		// finds SettingsViewController to change its alertSoundLabel
 		// with the name of the sound selected in this ViewController
