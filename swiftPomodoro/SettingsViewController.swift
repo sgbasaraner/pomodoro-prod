@@ -45,7 +45,7 @@ class SettingsViewController: UITableViewController {
         switch section {
         case Constants.defaultsSection:
             return Constants.defaultsItemCount
-        case Constants.alertSection
+        case Constants.alertSection:
             return Constants.alertItemCount
         default:
             return Constants.durationItemCount
