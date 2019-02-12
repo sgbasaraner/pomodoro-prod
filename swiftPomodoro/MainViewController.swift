@@ -28,7 +28,13 @@ class MainViewController: UIViewController {
 	private var timerModeButtons = [TimerModeButton]()
 	private var audioPlayer: AVAudioPlayer? = nil
 	private var timerModes = [TimerMode]()
-	private var currentMode = TimerMode.allModes[0] // currentMode is Pomodoro by default
+    private var currentMode = TimerMode.allModes[0] { // currentMode is Pomodoro by default
+        didSet {
+            runTimer()
+            PomodoroTimer.shared.secondsLeft = currentMode.seconds
+            NotificationsOperator.createNotification(for: currentMode)
+        }
+    }
 	private let soundOP = SoundOperator()
 	
 	// Lifecycle methods
@@ -76,34 +82,24 @@ class MainViewController: UIViewController {
     }
     
 	@IBAction private func pomodoroTouch(_ sender: TimerModeButton) {
-        runTimer()
         currentMode = timerModes[0]
-        PomodoroTimer.shared.secondsLeft = currentMode.seconds
-		NotificationsOperator.createNotification(for: currentMode)
 		highlight(sender)
     }
     
     @IBAction private func shortBreakTouch(_ sender: TimerModeButton) {
-        runTimer()
         currentMode = timerModes[1]
-        PomodoroTimer.shared.secondsLeft = currentMode.seconds
-		NotificationsOperator.createNotification(for: currentMode)
 		highlight(sender)
     }
     
     @IBAction private func longBreakTouch(_ sender: TimerModeButton) {
-        runTimer()
         currentMode = timerModes[2]
-        PomodoroTimer.shared.secondsLeft = currentMode.seconds
-		NotificationsOperator.createNotification(for: currentMode)
 		highlight(sender)
     }
     
     @IBAction private func startTouch(_ sender: UIButton) {
-		if PomodoroTimer.shared.secondsLeft >= 1 {
-			runTimer()
-			NotificationsOperator.createNotification(for: currentMode)
-		}
+        guard PomodoroTimer.shared.secondsLeft >= 1 else { return }
+        runTimer()
+        NotificationsOperator.createNotification(for: currentMode)
     }
     
     @IBAction private func stopTouch(_ sender: UIButton) {
