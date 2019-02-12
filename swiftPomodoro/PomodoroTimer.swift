@@ -18,7 +18,7 @@ class PomodoroTimer {
 	var temporarySoundIndex: Int? = nil
 	
 	func stopTimer() {
-		NotificationsOperator.removeAllNotifications()
+		NotificationsOperator.removeAllPendingNotifications()
 		if timerRunning {
 			timer.invalidate()
 			timerRunning = false

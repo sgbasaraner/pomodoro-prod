@@ -6,13 +6,19 @@
 //  Copyright © 2018 Sarp Guney. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import UserNotifications
 
 struct NotificationsOperator {
-	static func removeAllNotifications() {
+	static func removeAllPendingNotifications() {
 		UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 	}
+    
+    static func removeAllNotifications() {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
 	
 	static func createNotification(for mode: TimerMode) {
 		// remove all previous notifications
