@@ -10,10 +10,9 @@ import UIKit
 
 class AlertSoundViewController: UITableViewController {
 
-	// Class variables
+	// Instance variables
 	
 	private var soundsForDisplay = [String]()
-	private let soundOP = SoundOperator()
     
     weak var delegate: AlertSoundViewControllerDelegate?
 	
@@ -21,7 +20,7 @@ class AlertSoundViewController: UITableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		let sounds = soundOP.getSounds()
+		let sounds = SoundOperator.getSounds()
 		soundsForDisplay = prepareSoundsForDisplay(sounds: sounds)
     }
 	

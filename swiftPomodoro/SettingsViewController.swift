@@ -30,7 +30,7 @@ class SettingsViewController: UITableViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		provideDefaultValues()
-		alertSoundLabel.text = soundOP.getCurrentSoundFormatted()
+		alertSoundLabel.text = SoundOperator.getCurrentSoundFormatted()
 		textFields = [pomodoroField, shortBreakField, longBreakField]
 		setKeyboards()
     }
@@ -145,12 +145,12 @@ class SettingsViewController: UITableViewController {
 extension SettingsViewController: AlertSoundViewControllerDelegate {
     func setAlertSoundLabel() {
         guard let idx = PomodoroTimer.shared.temporarySoundIndex else { return }
-        alertSoundLabel.text = soundOP.formatSound(sound: idx)
+        alertSoundLabel.text = SoundOperator.formatSound(sound: idx)
     }
     
     func playSound() {
         guard let idx = PomodoroTimer.shared.temporarySoundIndex else { return }
-        let url = soundOP.getSoundURL(sound: idx)
+        let url = SoundOperator.getSoundURL(sound: idx)
         audioPlayer = try? AVAudioPlayer(contentsOf: url)
         audioPlayer?.play()
     }

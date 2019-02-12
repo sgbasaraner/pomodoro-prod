@@ -133,7 +133,7 @@ class MainViewController: UIViewController {
 	}
 	
 	private func playSound() {
-		let url = soundOP.getCurrentSoundURL()
+		let url = SoundOperator.getCurrentSoundURL()
 		audioPlayer = try! AVAudioPlayer(contentsOf: url)
 		audioPlayer!.play()
 	}
