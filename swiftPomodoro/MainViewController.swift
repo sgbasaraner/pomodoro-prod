@@ -53,15 +53,14 @@ class MainViewController: UIViewController {
 	// Private implementation
 	
     private func runTimer() {
-        if !PomodoroTimer.shared.timerRunning {
-			UIApplication.shared.isIdleTimerDisabled = true
-            PomodoroTimer.shared.timer = Timer.scheduledTimer(timeInterval: 1,
-                                         target: self,
-                                         selector: (#selector(self.updateTimer)),
-                                         userInfo: nil,
-                                         repeats: true)
-            PomodoroTimer.shared.timerRunning = true
-        }
+        guard !PomodoroTimer.shared.timerRunning else { return }
+        UIApplication.shared.isIdleTimerDisabled = true
+        PomodoroTimer.shared.timer = Timer.scheduledTimer(timeInterval: 1,
+                                                             target: self,
+                                                             selector: (#selector(self.updateTimer)),
+                                                             userInfo: nil,
+                                                             repeats: true)
+        PomodoroTimer.shared.timerRunning = true
     }
     
     @objc private func updateTimer() {
